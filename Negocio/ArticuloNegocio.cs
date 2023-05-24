@@ -8,9 +8,49 @@ using Dominio;
 using System.Xml.Linq;
 
 namespace Negocio
-{
+{   
+
+
     public class ArticuloNegocio
     {
+        public List<Articulo> listarconSP()
+        {
+            List<Articulo> lista = new List<Articulo>();
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.setearProcedimiento("storedListar");
+                datos.ejecutarLectura();
+
+                while (datos.Lector.Read())
+                {
+                    Articulo aux = new Articulo();
+                    aux.Id = datos.Lector.GetInt32(0);
+                    aux.Codigo = (string)datos.Lector["Codigo"];
+                    aux.Nombre = (string)datos.Lector["Nombre"];
+                    aux.Precio = (decimal)datos.Lector["Precio"];
+                    aux.Descripcion = (string)datos.Lector["Descripcion"];
+                    aux.Categoria = new Categoria();
+                    aux.Categoria.Descripcion = (string)datos.Lector["Categoria"];
+                    aux.Marca = new Marca();
+                    aux.Marca.Descripcion = (string)datos.Lector["Marca"];
+
+                    lista.Add(aux);
+                }
+                return lista;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
+
         public List<Articulo> listar()
         {
             List<Articulo> lista = new List<Articulo>();

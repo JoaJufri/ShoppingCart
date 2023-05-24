@@ -30,6 +30,12 @@ namespace Negocio
             comando.CommandText = consulta;
         }
 
+        public void setearProcedimiento(string sp)
+        {
+            comando.CommandType = System.Data.CommandType.StoredProcedure;
+            comando.CommandText = sp;
+        }
+
         //Agregar a una lista (campo para el insert | propiedad del obj)
         public void setearParametro(string nombre, object valor)
         {
