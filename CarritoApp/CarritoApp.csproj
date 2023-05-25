@@ -67,12 +67,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Carrito.aspx" />
     <Content Include="DescripcionProducto.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
     <Content Include="default.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Carrito.aspx.cs">
+      <DependentUpon>Carrito.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Carrito.aspx.designer.cs">
+      <DependentUpon>Carrito.aspx</DependentUpon>
+    </Compile>
     <Compile Include="DescripcionProducto.aspx.cs">
       <DependentUpon>DescripcionProducto.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
