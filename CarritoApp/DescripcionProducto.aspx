@@ -11,21 +11,21 @@
         <div class="col-6">
 
            <div id="carouselExampleIndicators" class="carousel slide">
-              <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-              </div>
-              <div class="carousel-inner" style="height: 450px;">
-                <div class="carousel-item active">
-                  <img src="https://c.pxhere.com/images/0a/f6/768da51235735cf64d0208ba8abf-1666380.jpg!d" style="height: 450px; overflow:hidden" alt="...">
-                </div>
-                <div class="carousel-item">
-                  <img src="https://c.pxhere.com/photos/09/16/smartphone_mobile_phone_touch_finger_touch_screen_continents_earth_globe-893132.jpg!d" style="height: 450px; overflow:hidden" alt="...">
-                </div>
-                <div class="carousel-item", "object-fit-cover border rounded">
-                  <img src="https://c.pxhere.com/images/60/21/3da5e8a1a867aebefd10758c01f6-1601892.jpg!d" class="d-block w-100" style="height: 450px; overflow:hidden" alt="...">
-                </div>
+              
+              <div class="carousel-inner" style="height: 450px; background-color:black">                     
+                
+               <%
+                   int tamLista = listaImg.Count();
+                   int ultimoItem = tamLista - 1;
+
+                   foreach (var urlImg in listaImg)
+                   {
+               %>                    
+                        <div class="carousel-item active">
+                            <img src="<%=urlImg %>" style="height: 400px; overflow:hidden" alt="<%=listaArt[0].Nombre %>">
+                        </div>
+                <% }%> 
+
               </div>
               <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -41,8 +41,8 @@
 
         <div class="col-4">
             <div class="row">
-                <h2 style="float:left;">Nombre del artículo</h2>
-                <asp:Label ID="lblDescripcion" runat="server" Text="Acá va a ir la descripción del artículo" style="float:left;"></asp:Label>
+                <h2 style="float:left;"><%=listaArt[0].Nombre %></h2>
+                <asp:Label ID="lblDescripcion" runat="server" Text="" style="float:left;"></asp:Label>
             
 
             </div>

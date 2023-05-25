@@ -92,5 +92,29 @@ namespace Negocio
             catch (Exception ex) { throw ex; }
             finally { datos.cerrarConexion(); }
         }
+
+        public Marca getMarca(int id)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            Marca marca = new Marca();
+            try
+            {
+                datos.setearConsulta("select * from Articulos where IdMarca = @id");
+                datos.setearParametro("@id", id);
+                datos.ejecutarLectura();
+                if (datos.Lector.Read())
+                {
+                    return marca;
+                }
+                else
+                {
+                    marca.Descripcion = "sin marca";
+                    return marca;
+                }
+            }
+            catch (Exception ex) { throw ex; }
+            finally { datos.cerrarConexion(); }
+        }
+
     }
 }
