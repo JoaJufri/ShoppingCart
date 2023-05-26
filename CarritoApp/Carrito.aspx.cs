@@ -9,6 +9,7 @@ namespace CarritoApp
     public partial class Carrito : System.Web.UI.Page
     {
         // Para probar
+        protected decimal totalInicial = 0;
         ArticuloNegocio negocio = new ArticuloNegocio();
         public List<Articulo> articulos;
         public ImagenNegocio imagen = new ImagenNegocio();
@@ -49,5 +50,9 @@ namespace CarritoApp
             return 1; // Valor predeterminado de 1 si no se encuentra la cantidad
         }
 
+        protected void btnPasarPagar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
