@@ -60,25 +60,27 @@
             <asp:Label Visible="false" runat="server" ID="lblMessage"></asp:Label>
             <div class="item-list">
                 <% foreach (var articulo in articulos)
-                {
-                    var imagenes = imagen.listar(articulo.Id);
-                    string imageUrl = "https://www.publicdomainpictures.net/pictures/280000/velka/not-found-image-15383864787lu.jpg";
-                    if (imagenes.Count > 0 && !string.IsNullOrEmpty(imagenes[0].ImagenUrl))
-                    {
-                        imageUrl = imagenes[0].ImagenUrl;
-                    }
+{
+    var imagenes = imagen.listar(articulo.Id);
+    string imageUrl = "https://www.publicdomainpictures.net/pictures/280000/velka/not-found-image-15383864787lu.jpg";
+    if (imagenes.Count > 0 && !string.IsNullOrEmpty(imagenes[0].ImagenUrl))
+    {
+        imageUrl = imagenes[0].ImagenUrl;
+    }
+
+    int cantidadArticulo = ObtenerCantidadArticulo(articulo.Id);
                 %>
-                    <div class="item-row">
-                        <img src="<%= imageUrl %>" class="item-image" />
-                        <div class="item-details">
-                            <span class="item-name"><%= articulo.Nombre %></span>
-                            <span class="item-price">$<%= articulo.Precio %></span>
-                        </div>
-                        <div class="item-quantity">
-                            <input type="number" min="1" value="1" />
-                        </div>
-                        <span class="item-total">Total: $<%= articulo.Precio %></span>
+                <div class="item-row">
+                    <img src="<%= imageUrl %>" class="item-image" />
+                    <div class="item-details">
+                        <span class="item-name"><%= articulo.Nombre %></span>
+                        <span class="item-price">$<%= articulo.Precio %></span>
                     </div>
+                    <div class="item-quantity">
+                        <input type="number" min="1" value="<%= cantidadArticulo %>" placeholder="" />
+                    </div>
+                    <span class="item-total">Total: $<%= articulo.Precio %></span>
+                </div>
                 <% } %>
             </div>
         </div>
