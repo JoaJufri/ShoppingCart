@@ -11,6 +11,7 @@ namespace CarritoApp
         // Para probar
         ArticuloNegocio negocio = new ArticuloNegocio();
         public List<Articulo> articulos;
+        public ImagenNegocio imagen = new ImagenNegocio();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -24,6 +25,8 @@ namespace CarritoApp
             else
             {
                 articulos = (List<Articulo>)Session["Carrito"];
+                lblMessage.Visible = false;
+                
             }
         }
     }

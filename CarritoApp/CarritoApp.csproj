@@ -122,6 +122,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="img\" />
     <Folder Include="Models\" />
+    <Folder Include="Script\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Dominio\Dominio.csproj">
