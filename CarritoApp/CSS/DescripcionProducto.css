@@ -1,0 +1,18 @@
+﻿body {
+
+}
+.carousel-inner {
+    background-color: #0D6EFD;
+    height: 450px;
+}
+.col-4 {   
+    position: relative;
+    height: 450px;
+}
+
+#btnAgregar{
+    position: absolute;
+    bottom: 10px;
+}
+
+
