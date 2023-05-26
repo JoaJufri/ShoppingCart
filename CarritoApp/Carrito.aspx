@@ -129,7 +129,7 @@
                             totalInicial += subTotal;
                     %>
                     <div class="item-row">
-                        <img src="<%= imageUrl %>" class="item-image" />
+                        <img src="<%= imageUrl %>" class="item-image" onerror="this.src='https://www.publicdomainpictures.net/pictures/280000/velka/not-found-image-15383864787lu.jpg'" />
                         <div class="item-details">
                             <span class="item-name"><%= articulo.Nombre %></span>
                             <span class="item-price">$<%= articulo.Precio %></span>
