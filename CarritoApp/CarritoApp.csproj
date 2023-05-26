@@ -70,6 +70,7 @@
     <Content Include="Carrito.aspx" />
     <Content Include="DescripcionProducto.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="CSS\Home.css" />
     <Content Include="Web.config" />
     <Content Include="default.aspx" />
   </ItemGroup>
