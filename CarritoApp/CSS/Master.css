@@ -1,6 +1,8 @@
 ﻿body {
     background-color: #D3E8FA;
-    /*position:relative;*/
+    position:relative;
+    display: flex;
+    flex-direction: column;
 }
 header {
     position: fixed;
@@ -12,7 +14,7 @@ header {
     color: white;
 }
 .placeholder {   
-    padding-top:100px;   
+    padding-top:70px;   
 }
 
 

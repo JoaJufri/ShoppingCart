@@ -1,19 +1,36 @@
 ﻿.portada {
     width: 100%;
-    height: 1000px;
-    background-color:aquamarine;
+    height: 600px;
+    /*
+        background-image: linear-gradient( to bottom right, aquamarine, #0D6EFD );
+    */
+    background-image: url("https://c.pxhere.com/images/0b/ab/c37906f4ec93b6fb04854fa936b0-1676058.jpg!d");
+    background-size: cover; /* Ajusta el tamaño de la imagen al contenedor */
+    background-position: center;
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#btnVermas {
+    width: 100px;
+    height: 100px;
+    background-color: #0D6EFD;
+    color: white;
 }
 
 
 
 h1 {
     color: #0D6EFD;
-    margin:0 auto;
+    margin-top: 50px;
 }
 
-.title {
+#title {
     display:flex;
     justify-content:center;
+    align-items: center;
 }
 
 .card {
