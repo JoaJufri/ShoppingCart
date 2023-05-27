@@ -19,7 +19,7 @@
                 
                <%
                    int i = 0;
-                   int j = 0;
+                   int j = 0; 
                    
                %>   
                   <div class="carousel-indicators">
@@ -48,12 +48,12 @@
                         if (i == 0)
                         { %>      
                             <div class="carousel-item active">
-                                <img src="<%=urlImg %>" style="height: 400px; overflow:hidden" alt="<%=listaArt[0].Nombre %>">
+                                <img src="<%=urlImg %>" style="height: 400px; overflow:hidden" alt="<%=listaArt[id_art-1].Nombre %>">
                             </div>
                       <%}
                         else { %>      
                             <div class="carousel-item">
-                                <img src="<%=urlImg %>" style="height: 400px; overflow:hidden" alt="<%=listaArt[0].Nombre %>">
+                                <img src="<%=urlImg %>" style="height: 400px; overflow:hidden" alt="<%=listaArt[id_art-1].Nombre %>">
                             </div>
                      <% } %>
                      <% i += 1; %>                            
@@ -74,7 +74,7 @@
 
             <div class="col-4">
                 <div class="row">
-                    <h2 style="float:left;"><%=listaArt[0].Nombre %></h2>
+                    <h2 style="float:left;"><%=listaArt[id_art-1].Nombre %></h2>
                     <asp:Label ID="lblDescripcion" runat="server" Text="" style="float:left;"></asp:Label>    
                 </div>
                 <div class="row">

@@ -25,6 +25,8 @@
                     <p class="card-text">Categoria: <%: item.Categoria %> </p>
                     <p class="card-text"><%: item.Codigo %> </p>
                     <p class="card-text">$ <%: item.Precio %> </p>
+                    <% string id_art = "DescripcionProducto.aspx?Id="+ item.Id.ToString();  %>
+                <button><a id="btn_detalle" href="<%: id_art %>" >Ver Detalle</a></button>
                 </div>
             </div>
         </div>

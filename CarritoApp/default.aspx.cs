@@ -23,5 +23,7 @@ namespace CarritoApp
                 listaImg.Add(aux);
             }
         }
+
+      
     }
 }
