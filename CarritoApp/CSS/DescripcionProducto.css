@@ -1,18 +1,17 @@
 ﻿body {
     background-color: #D3E8FA;
 }
+
 .carousel-inner {
     background-color: #0D6EFD;
     height: 450px;
 }
-.col-4 {   
-    position: relative;
-    height: 450px;
-}
 
-#btnAgregar{
-    position: absolute;
-    bottom: 10px;
+
+.col-4 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 

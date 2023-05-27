@@ -17,15 +17,26 @@ namespace CarritoApp
         public List<Dominio.Imagen> listaImg { set; get; }
         public List<Dominio.Marca> ListaMarca { set; get; }
         public int id_art { set; get; }
+        public int indiceArt { set; get; }
         protected void Page_Load(object sender, EventArgs e)
         {
 
             id_art = int.Parse(Request.QueryString["Id"]);
             listaArt = negocio.listar();
             listaImg = imgNegocio.listar(id_art);
-            //ARREGLAR INDICE
-            lblDescripcion.Text = listaArt[id_art-1].Descripcion.ToString();
-            txtMarca.Text = listaArt[id_art-1].Marca.Descripcion.ToString();
+            
+            //BUSCAR INDICE                    
+
+            foreach (var art in listaArt)
+            {
+                if (art.Id == id_art)
+                {
+                    indiceArt = art.Id;
+                }
+            }
+
+            lblDescripcion.Text = listaArt[indiceArt].Descripcion.ToString();
+            txtMarca.Text = listaArt[indiceArt].Marca.Descripcion.ToString();
             
         }
     }

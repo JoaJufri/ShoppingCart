@@ -48,12 +48,12 @@
                         if (i == 0)
                         { %>      
                             <div class="carousel-item active">
-                                <img src="<%=urlImg %>" style="height: 400px; overflow:hidden" alt="<%=listaArt[id_art-1].Nombre %>">
+                                <img src="<%=urlImg %>" style="height: 400px; overflow:hidden" alt="<%=listaArt[indiceArt].Nombre %>">
                             </div>
                       <%}
                         else { %>      
                             <div class="carousel-item">
-                                <img src="<%=urlImg %>" style="height: 400px; overflow:hidden" alt="<%=listaArt[id_art-1].Nombre %>">
+                                <img src="<%=urlImg %>" style="height: 400px; overflow:hidden" alt="<%=listaArt[indiceArt].Nombre %>">
                             </div>
                      <% } %>
                      <% i += 1; %>                            
@@ -74,17 +74,37 @@
 
             <div class="col-4">
                 <div class="row">
-                    <h2 style="float:left;"><%=listaArt[id_art-1].Nombre %></h2>
+                    <h2><%=listaArt[indiceArt].Nombre %></h2>
                     <asp:Label ID="lblDescripcion" runat="server" Text="" style="float:left;"></asp:Label>    
                 </div>
                 <div class="row">
-                    <asp:Label ID="lblMarca" runat="server" Text="Marca:"></asp:Label><asp:Label ID="txtMarca" runat="server" Text="Nombre de la marca" ></asp:Label>
+                     <hr />
+                    <p>
+                        <asp:Label ID="lblMarca" runat="server" Text="Marca:"></asp:Label>
+                        <asp:Label ID="txtMarca" runat="server" Text="Nombre de la marca" ></asp:Label>
+                    </p>
+                    
+                </div>
+                 <div class="row">
+                     
+                     
                 </div>
                 <div  class="row">
-                    <asp:Button ID="btnAgregar" runat="server" Text="Agregar al carrito" CssClass="btn btn-primary" />
+                    <hr />
+                    <p>
+                         <asp:Label ID="lblcantidad" runat="server" Text="Cantidad:"></asp:Label>
+                        <asp:TextBox ID="txtCantidad" type="number" runat="server"></asp:TextBox>
+                     </p>
+                    <% string id_articulo = "Carrito.aspx?Id="+ id_art.ToString();  %>
+                    <% string cant_articulos = "cant_art="+ txtCantidad.ToString();  %>
+                    <% string parametros = id_articulo+"&"+cant_articulos;  %>
+                    <button><a id="btnAgregar" href="<%: parametros %>" >Agregar al carrito</a></button>
+                    <!--<a href=""></a><asp:Button ID="btnAgregar" runat="server" Text="Agregar al carrito" CssClass="btn btn-primary" />
+                    -->
                 </div>
-           </div>   
-               <div class="col-1">            
+           </div>    
+
+           <div class="col-1">            
            </div>    
 
       </div>

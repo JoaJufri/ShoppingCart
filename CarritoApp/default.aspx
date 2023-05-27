@@ -4,6 +4,10 @@
     <link href="CSS/Home.css" rel="stylesheet" type="text/css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div class="portada">
+        <!--Acá podemos poner una pantalla de inicio con un botón que haga scroll al listado-->
+
+    </div>
     <div class="title">
         <h1 id="lista-articulos">Lista de Articulos</h1>
     </div>
