@@ -5,8 +5,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="title">
-    <h1>Lista de Articulos</h1>
-
+        <h1 id="lista-articulos">Lista de Articulos</h1>
     </div>
 
 

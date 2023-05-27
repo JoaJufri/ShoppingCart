@@ -69,6 +69,7 @@
   <ItemGroup>
     <Content Include="Carrito.aspx" />
     <Content Include="CSS\DescripcionProducto.css" />
+    <Content Include="CSS\Master.css" />
     <Content Include="DescripcionProducto.aspx" />
     <Content Include="Global.asax" />
     <Content Include="CSS\Home.css" />

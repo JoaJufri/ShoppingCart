@@ -1,0 +1,19 @@
+﻿body {
+    background-color: #D3E8FA;
+    /*position:relative;*/
+}
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 15; /*las cards tienen 10 y tiene que estar por encima para que no se tape*/
+}
+.nav-link {
+    color: white;
+}
+.placeholder {   
+    height:120px;   
+}
+
+
+
