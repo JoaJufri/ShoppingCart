@@ -13,12 +13,13 @@
     <div class="row row-cols-1 row-cols-md-2 g-4">
 
         <% 
+                var i = 0;
             foreach (var item in listaArt)
             {
-        %>
+%>
         <div class="col">
             <div class="card">
-                <img src="Content/placeholder-22.png" class="card-img-top" alt="placeholder">
+                <img src="<%: listaImg[i].ImagenUrl %>" class="card-img-top" alt="img art. <%: item.Nombre %>">
                 <div class="card-body">
                     <h5 class="card-title"><%: item.Nombre %> </h5>
                     <p class="card-text">Marca: <%: item.Marca %> </p>
@@ -29,7 +30,9 @@
             </div>
         </div>
 
-        <% } %>
+        <% 
+                i++;
+            } %>
     </div>
 
 </asp:Content>

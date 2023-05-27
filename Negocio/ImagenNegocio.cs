@@ -30,6 +30,14 @@ namespace Negocio
                     lista.Add(aux);
                 }
 
+                Imagen auxnull = new Imagen();
+                if (lista.Count <= 0)
+                {
+                    auxnull.IdArticulo = idArticulo;
+                    auxnull.ImagenUrl = "https://www.publicdomainpictures.net/pictures/280000/velka/not-found-image-15383864787lu.jpg";
+                    auxnull.Id = -1;
+                    lista.Add((Imagen)auxnull);
+                }
                 return lista;
             }
             catch (Exception ex)
@@ -51,13 +59,14 @@ namespace Negocio
                 string valores = "values(" + nuevo.IdArticulo + ", '" + nuevo.ImagenUrl + "')";
                 datos.setearConsulta("insert into Imagenes (IdArticulo, ImagenUrl)" + valores);
                 datos.ejecutarLectura();
-                
+
             }
             catch (Exception ex)
-            {   
+            {
                 throw ex;
             }
-            finally { 
+            finally
+            {
                 datos.cerrarConexion();
             }
         }
@@ -80,15 +89,17 @@ namespace Negocio
             catch (Exception ex)
             {
 
-               throw ex;
+                throw ex;
             }
-            finally { 
-                datos.cerrarConexion(); 
+            finally
+            {
+                datos.cerrarConexion();
             }
         }
 
 
-        public void Vaciar(int idArticulo) {
+        public void Vaciar(int idArticulo)
+        {
 
             AccesoDatos datos = new AccesoDatos();
             try
@@ -96,13 +107,14 @@ namespace Negocio
                 datos.setearConsulta("DELETE FROM IMAGENES WHERE IdArticulo=" + idArticulo);
                 datos.ejecutarLectura();
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
 
                 throw ex;
             }
-            finally { 
-                datos.cerrarConexion(); 
+            finally
+            {
+                datos.cerrarConexion();
             }
         }
 
@@ -121,8 +133,9 @@ namespace Negocio
             {
                 throw ex;
             }
-            finally { 
-                datos.cerrarConexion(); 
+            finally
+            {
+                datos.cerrarConexion();
             }
         }
 
@@ -139,8 +152,9 @@ namespace Negocio
             {
                 throw ex;
             }
-            finally { 
-                datos.cerrarConexion(); 
+            finally
+            {
+                datos.cerrarConexion();
             }
         }
 
