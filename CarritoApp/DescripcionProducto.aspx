@@ -13,36 +13,39 @@
 
         <div class="col-6">
 
-           <div id="carouselExampleIndicators" class="carousel slide">
+            <div id="carouselExampleIndicators" class="carousel slide">
               
               <div class="carousel-inner">    
                 
                <%
                    int i = 0;
-                   int j = 0; 
-                   
-               %>   
+                   int j = 0;
+
+%>   
                   <div class="carousel-indicators">
                <%
+                   if (listaImg.Count() > 0)
+                   {
+                       foreach (var urlImg in listaImg)
+                       {
+                           if (j == 0)
+                           { %>      
+                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
 
-                    foreach (var urlImg in listaImg)
-                    {
-                        if (j == 0)
-                        { %>      
-                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <%}
+                                else
+                                { %>      
+                                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="<%= j %>" aria-label="Slide <%= (j + 1) %>"></button>
 
-                        <%}
-                        else { %>      
-                             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="<%= j %>" aria-label="Slide <%= (j+1) %>"></button>
-
-                        <% } %>
-                        <% j += 1; %>                            
-                    <% }
-
+                            <% } %>
+                            <% j += 1; %>                            
+                     <%}
+                   }
                  %>   
                   </div>
                  <%
-
+                if (listaImg.Count() > 0)
+                {
                    foreach (var urlImg in listaImg)
                    {
                         if (i == 0)
@@ -57,7 +60,18 @@
                             </div>
                      <% } %>
                      <% i += 1; %>                            
-                <% }%> 
+                <% }
+
+                }
+                else
+                {
+                            %>
+                    <div class="carousel-item active">
+                        <img src="https://c.pxhere.com/images/47/83/d6e362ca869395f9db5b5a3d0659-1675158.png!d" style="height: 400px; overflow:hidden" alt="<%=listaArt[indiceArt].Nombre %>">
+                    </div>
+                <%
+                }
+               %> 
 
               </div>
               <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -95,12 +109,16 @@
                          <asp:Label ID="lblcantidad" runat="server" Text="Cantidad:"></asp:Label>
                         <asp:TextBox ID="txtCantidad" type="number" runat="server"></asp:TextBox>
                      </p>
-                    <% string id_articulo = "Carrito.aspx?Id="+ id_art.ToString();  %>
+                    <% string id_articulo = "Id="+ id_art.ToString();  %>
                     <% string cant_articulos = "cant_art="+ txtCantidad.ToString();  %>
-                    <% string parametros = id_articulo+"&"+cant_articulos;  %>
-                    <button><a id="btnAgregar" href="<%: parametros %>" >Agregar al carrito</a></button>
-                    <!--<a href=""></a><asp:Button ID="btnAgregar" runat="server" Text="Agregar al carrito" CssClass="btn btn-primary" />
-                    -->
+
+                    <% string parametrosComprar = "Carrito.aspx?"+id_articulo+"&"+cant_articulos;  %>                  
+                    <% string parametrosSeguir = "Default.aspx#title?"+id_articulo+"&"+cant_articulos;  %>
+                    
+                    <button><a id="btnComprar" href="<%: parametrosComprar %>" >IR A COMPRAR</a></button>                    
+                    <button><a id="btnAgregarYSeguir" href="<%: parametrosSeguir %>" >AGREGAR Y SEGUIR COMPRANDO</a></button>
+                    
+                   
                 </div>
            </div>    
 

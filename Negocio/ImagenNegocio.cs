@@ -34,7 +34,7 @@ namespace Negocio
                 if (lista.Count <= 0)
                 {
                     auxnull.IdArticulo = idArticulo;
-                    auxnull.ImagenUrl = "https://www.publicdomainpictures.net/pictures/280000/velka/not-found-image-15383864787lu.jpg";
+                    auxnull.ImagenUrl = "https://c.pxhere.com/images/47/83/d6e362ca869395f9db5b5a3d0659-1675158.png!d";
                     auxnull.Id = -1;
                     lista.Add((Imagen)auxnull);
                 }

@@ -12,10 +12,12 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-top:0px;
 }
+
 #btnVermas {
-    width: 100px;
-    height: 100px;
+    width: 100px !important;
+    height: 100px !important;
     background-color: #0D6EFD;
     color: white;
 }
@@ -24,7 +26,7 @@
 
 h1 {
     color: #0D6EFD;
-    margin-top: 50px;
+    margin-top: 60px;
 }
 
 #title {

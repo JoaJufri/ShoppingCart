@@ -24,20 +24,38 @@ namespace CarritoApp
             id_art = int.Parse(Request.QueryString["Id"]);
             listaArt = negocio.listar();
             listaImg = imgNegocio.listar(id_art);
-            
-            //BUSCAR INDICE                    
 
+            //BUSCAR INDICE                    
+            int indice = 0;
             foreach (var art in listaArt)
             {
+
                 if (art.Id == id_art)
                 {
-                    indiceArt = art.Id;
+                    indiceArt = indice;
                 }
+                indice ++;
             }
 
-            lblDescripcion.Text = listaArt[indiceArt].Descripcion.ToString();
-            txtMarca.Text = listaArt[indiceArt].Marca.Descripcion.ToString();
+            try
+            {
+                lblDescripcion.Text = listaArt[indiceArt].Descripcion.ToString();
+            }
+            catch{
+                lblDescripcion.Text = "Sin descripción";
+            }
+            try
+            {
+                txtMarca.Text = listaArt[indiceArt].Marca.Descripcion.ToString();
+            }
+            catch
+            {
+                lblDescripcion.Text = "Sin especificar";
+            }
+
             
         }
+
+       
     }
 }
