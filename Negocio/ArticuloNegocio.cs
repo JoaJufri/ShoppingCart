@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using Dominio;
 using System.Xml.Linq;
+using System.Collections;
 
 namespace Negocio
-{   
+{
 
 
     public class ArticuloNegocio
@@ -57,12 +58,12 @@ namespace Negocio
             AccesoDatos datos = new AccesoDatos();
 
             try
-            {               
+            {
                 datos.setearConsulta("SELECT A.Id,  A.Codigo, A.Nombre, A.Precio, A.Descripcion, C.Descripcion as Categoria, M.Descripcion as Marca FROM ARTICULOS A, MARCAS M, CATEGORIAS C WHERE A.IdCategoria = C.Id AND A.IdMarca = M.Id");
                 datos.ejecutarLectura();
 
                 while (datos.Lector.Read())
-                {                    
+                {
                     Articulo aux = new Articulo();
                     aux.Id = datos.Lector.GetInt32(0);
                     aux.Codigo = (string)datos.Lector["Codigo"];
@@ -70,16 +71,16 @@ namespace Negocio
                     aux.Precio = (decimal)datos.Lector["Precio"];
                     aux.Descripcion = (string)datos.Lector["Descripcion"];
                     aux.Categoria = new Categoria();
-                    aux.Categoria.Descripcion = (string)datos.Lector["Categoria"];                    
+                    aux.Categoria.Descripcion = (string)datos.Lector["Categoria"];
                     aux.Marca = new Marca();
-                    aux.Marca.Descripcion = (string)datos.Lector["Marca"];                   
+                    aux.Marca.Descripcion = (string)datos.Lector["Marca"];
 
-                    lista.Add(aux);                    
+                    lista.Add(aux);
                 }
                 return lista;
             }
-            catch (Exception ex) 
-            { 
+            catch (Exception ex)
+            {
                 throw ex;
             }
             finally
@@ -92,11 +93,11 @@ namespace Negocio
 
         public void Agregar(Articulo nuevo)
         {
-            AccesoDatos datos = new AccesoDatos();    
-             
+            AccesoDatos datos = new AccesoDatos();
+
             try
             {
-                datos.setearConsulta("INSERT INTO ARTICULOS (Codigo, Nombre, Descripcion, Precio, IdMarca, IdCategoria)values('" + nuevo.Codigo + "', '" + nuevo.Nombre + "', '" + nuevo.Descripcion + "', " + nuevo.Precio+ ", " +nuevo.Marca.Id+ ", "+nuevo.Categoria.Id+")");
+                datos.setearConsulta("INSERT INTO ARTICULOS (Codigo, Nombre, Descripcion, Precio, IdMarca, IdCategoria)values('" + nuevo.Codigo + "', '" + nuevo.Nombre + "', '" + nuevo.Descripcion + "', " + nuevo.Precio + ", " + nuevo.Marca.Id + ", " + nuevo.Categoria.Id + ")");
                 datos.ejecutarLectura();
             }
             catch (Exception ex)
@@ -109,9 +110,9 @@ namespace Negocio
             }
         }
 
-              
-       
-        public void Modificar(Articulo articulo) 
+
+
+        public void Modificar(Articulo articulo)
         {
             AccesoDatos datos = new AccesoDatos();
             try
@@ -136,13 +137,13 @@ namespace Negocio
                 datos.cerrarConexion();
             }
 
-        }        
+        }
 
-        public void Eliminar(int id) 
+        public void Eliminar(int id)
         {
             AccesoDatos datos = new AccesoDatos();
             try
-            {                
+            {
                 datos.setearConsulta("delete from ARTICULOS where Id = @id");
                 datos.setearParametro("@id", id);
                 datos.ejecutarAccion();
@@ -157,7 +158,7 @@ namespace Negocio
                 datos.cerrarConexion();
             }
         }
-        
+
         public List<Articulo> filtrar(string campo, string criterio, string filtro)
         {
             List<Articulo> lista = new List<Articulo>();
@@ -255,7 +256,44 @@ namespace Negocio
                 datos.cerrarConexion();
             }
         }
-        
+        public Articulo obtenerArticulo(int id)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.setearConsulta("SELECT A.Codigo, A.Nombre, A.Precio, A.Descripcion, C.Descripcion as Categoria, M.Descripcion as Marca FROM ARTICULOS A, MARCAS M, CATEGORIAS C WHERE A.IdCategoria = C.Id AND A.IdMarca = M.Id AND A.Id = @id");
+                datos.setearParametro("@id", id);
+                datos.ejecutarLectura();
+
+                if (datos.Lector.Read())
+                {
+                    Articulo aux = new Articulo();
+                    aux.Id = id;
+                    aux.Codigo = (string)datos.Lector["Codigo"];
+                    aux.Nombre = (string)datos.Lector["Nombre"];
+                    aux.Precio = (decimal)datos.Lector["Precio"];
+                    aux.Descripcion = (string)datos.Lector["Descripcion"];
+                    aux.Categoria = new Categoria();
+                    aux.Categoria.Descripcion = (string)datos.Lector["Categoria"];
+                    aux.Marca = new Marca();
+                    aux.Marca.Descripcion = (string)datos.Lector["Marca"];
+
+                    return aux;
+                }
+
+                return null;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
 
     }
 }

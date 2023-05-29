@@ -115,18 +115,20 @@
                 <div class="item-list">
                     <% 
                         decimal totalInicial = 0;
-                        foreach (var articulo in articulos)
+                        if (articulos != null)
                         {
-                            var imagenes = imagen.listar(articulo.Id);
-                            string imageUrl = "https://www.publicdomainpictures.net/pictures/280000/velka/not-found-image-15383864787lu.jpg";
-                            if (imagenes.Count > 0 && !string.IsNullOrEmpty(imagenes[0].ImagenUrl))
+                            foreach (var articulo in articulos)
                             {
-                                imageUrl = imagenes[0].ImagenUrl;
-                            }
+                                var imagenes = imagen.listar(articulo.Id);
+                                string imageUrl = "https://www.publicdomainpictures.net/pictures/280000/velka/not-found-image-15383864787lu.jpg";
+                                if (imagenes.Count > 0 && !string.IsNullOrEmpty(imagenes[0].ImagenUrl))
+                                {
+                                    imageUrl = imagenes[0].ImagenUrl;
+                                }
 
-                            int cantidadArticulo = ObtenerCantidadArticulo(articulo.Id);
-                            decimal subTotal = articulo.Precio * cantidadArticulo;
-                            totalInicial += subTotal;
+                                int cantidadArticulo = ObtenerCantidadArticulo(articulo.Id);
+                                decimal subTotal = articulo.Precio * cantidadArticulo;
+                                totalInicial += subTotal;
                     %>
                     <div class="item-row">
                         <img src="<%= imageUrl %>" class="item-image" onerror="this.src='https://www.publicdomainpictures.net/pictures/280000/velka/not-found-image-15383864787lu.jpg'" />
@@ -139,7 +141,8 @@
                         </div>
                         <span class="item-total">Total: $<%= subTotal.ToString("0.00") %></span>
                     </div>
-                    <% } %>
+                    <% }
+                        }%>
                 </div>
             </div>
         </updatepanel>
