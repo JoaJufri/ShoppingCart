@@ -125,6 +125,10 @@
                                 {
                                     imageUrl = imagenes[0].ImagenUrl;
                                 }
+                                else
+                                {
+                                    imageUrl = "https://www.publicdomainpictures.net/pictures/280000/velka/not-found-image-15383864787lu.jpg";
+                                }
 
                                 int cantidadArticulo = ObtenerCantidadArticulo(articulo.Id);
                                 decimal subTotal = articulo.Precio * cantidadArticulo;
