@@ -17,7 +17,6 @@ namespace CarritoApp
         
         protected void Page_Load(object sender, EventArgs e)
         {
-            listaID = null;
             listaID = (List<CarritoCantidad>)Session["carritoCompra"];
             
             if (listaID != null)
@@ -50,7 +49,9 @@ namespace CarritoApp
 
         protected void btnPasarPagar_Click(object sender, EventArgs e)
         {
-
+            string mensaje = "Esta funcionalidad estará disponible en una futura actualización.";
+            ScriptManager.RegisterStartupScript(this, GetType(), "MostrarMensaje", $"alert('{mensaje}');", true);
         }
+
     }
 }
