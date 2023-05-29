@@ -13,16 +13,16 @@ namespace CarritoApp
         ArticuloNegocio negocio = new ArticuloNegocio();
         public List<Articulo> articulos;
         public ImagenNegocio imagen = new ImagenNegocio();
-        public List<CarritoCantidad> cantidad = new List<CarritoCantidad>();
+        public List<CarritoItem> cantidad = new List<CarritoItem>();
 
         
         protected void Page_Load(object sender, EventArgs e)
         {
             Session["Carrito"] = negocio.listarconSP();
             Session["Cantidades"] = cantidad;
-            ((List<CarritoCantidad>)Session["Cantidades"]).Add(new CarritoCantidad(3, 3));
-            ((List<CarritoCantidad>)Session["Cantidades"]).Add(new CarritoCantidad(5, 9));
-            ((List<CarritoCantidad>)Session["Cantidades"]).Add(new CarritoCantidad(2, 11));
+            ((List<CarritoItem>)Session["Cantidades"]).Add(new CarritoItem(3, 3));
+            ((List<CarritoItem>)Session["Cantidades"]).Add(new CarritoItem(5, 9));
+            ((List<CarritoItem>)Session["Cantidades"]).Add(new CarritoItem(2, 11));
 
             if (Session["Carrito"] == null)
             {
@@ -37,10 +37,10 @@ namespace CarritoApp
         }
         public int ObtenerCantidadArticulo(int idArticulo)
         {
-            List<CarritoCantidad> cantidades = (List<CarritoCantidad>)Session["Cantidades"];
+            List<CarritoItem> cantidades = (List<CarritoItem>)Session["Cantidades"];
             if (cantidades != null)
             {
-                CarritoCantidad cantidadItem = cantidades.Find(c => c.IdArticulo == idArticulo);
+                CarritoItem cantidadItem = cantidades.Find(c => c.IdArticulo == idArticulo);
                 if (cantidadItem != null)
                 {
                     return cantidadItem.Cantidad;

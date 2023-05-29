@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace Dominio
 {
-    public class CarritoCantidad
+    public class CarritoItem
     {
         public int IdArticulo { get; set; }
         public int Cantidad { get; set; }
 
-        public CarritoCantidad(int idArticulo, int cantidad)
+        public CarritoItem(int idArticulo, int cantidad)
         {
             IdArticulo = idArticulo;
             Cantidad = cantidad;
         }
-        public CarritoCantidad() { }
+        public CarritoItem() { }
         
     }
 }

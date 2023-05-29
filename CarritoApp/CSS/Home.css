@@ -4,15 +4,15 @@
     /*
         background-image: linear-gradient( to bottom right, aquamarine, #0D6EFD );
     */
-    background-image: url("https://c.pxhere.com/images/0b/ab/c37906f4ec93b6fb04854fa936b0-1676058.jpg!d");
-    background-size: cover; 
+    background-image: url("https://c.pxhere.com/photos/d7/c5/ipad_samsung_music_play_google_tablet_internet_phone-759447.jpg!d");
+    background-size: cover;
     background-position: center;
     margin-bottom: 50px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top:0px;
+    margin-top: 0px;
 }
 
 
