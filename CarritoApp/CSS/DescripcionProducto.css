@@ -1,9 +1,10 @@
-﻿body {
-    background-color: #D3E8FA;
+﻿.row {
+    padding-top: 20px;
 }
 
 .carousel-inner {
     background-color: #0D6EFD;
+    background-image: linear-gradient( to bottom right, #8dbafc, #0D6EFD );
     height: 450px;
 }
 
@@ -15,3 +16,16 @@
 }
 
 
+
+.btn{
+    margin-top:10px;
+}  
+
+
+input[type="number"] {
+    background-color: white;
+    border: 1px solid #0D6EFD;
+    border-radius: 10px;
+    width: 50px;
+    text-align:center;
+}

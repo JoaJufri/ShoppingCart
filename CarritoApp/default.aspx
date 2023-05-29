@@ -5,7 +5,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="portada">
-        <asp:Button ID="btnVermas" runat="server" Text="VER CATÁLOGO" OnClick="btnVermas_Click" CssClass="btn btn-primary" />
+        <asp:Button ID="btnVermas" runat="server" Text="VER CATÁLOGO" OnClick="btnVermas_Click" CssClass="btn btn-primary btn-vermas" />
     </div>
 
     <div id="title">

@@ -53,9 +53,30 @@ namespace CarritoApp
                 lblDescripcion.Text = "Sin especificar";
             }
 
-            
-        }
 
-       
+        }
+        
+                    
+
+        protected void btnComprar_Click(object sender, EventArgs e)
+        {
+            id_art = int.Parse(Request.QueryString["Id"]);
+            string id_articulo = "Id=" + id_art.ToString();
+            string cant_articulos = "cant_art=" + txtCantidad.ToString();
+            string parametrosComprar = "Carrito.aspx?" + id_articulo + "&" + cant_articulos;
+            Response.Redirect(parametrosComprar);
+        } 
+        
+        protected void btnAgregarYSeguir_Click(object sender, EventArgs e)
+        {
+            id_art = int.Parse(Request.QueryString["Id"]);
+            string id_articulo = "Id=" + id_art.ToString();
+            string cant_articulos = "cant_art=" + txtCantidad.ToString();
+            string parametrosSeguir = "Default.aspx#title?" + id_articulo + "&" + cant_articulos;
+            Response.Redirect(parametrosSeguir);
+        }
+        
+        
+
     }
 }

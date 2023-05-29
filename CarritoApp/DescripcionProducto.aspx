@@ -106,19 +106,14 @@
                 <div  class="row">
                     <hr />
                     <p>
-                         <asp:Label ID="lblcantidad" runat="server" Text="Cantidad:"></asp:Label>
+                        <asp:Label ID="lblcantidad" runat="server" Text="Cantidad:"></asp:Label>
                         <asp:TextBox ID="txtCantidad" type="number" runat="server"></asp:TextBox>
                      </p>
-                    <% string id_articulo = "Id="+ id_art.ToString();  %>
-                    <% string cant_articulos = "cant_art="+ txtCantidad.ToString();  %>
 
-                    <% string parametrosComprar = "Carrito.aspx?"+id_articulo+"&"+cant_articulos;  %>                  
-                    <% string parametrosSeguir = "Default.aspx#title?"+id_articulo+"&"+cant_articulos;  %>
+                    <asp:Button ID="btnComprar" runat="server" Text="IR A COMPRAR" OnClick="btnComprar_Click" CssClass="btn btn-primary" />
                     
-                    <button><a id="btnComprar" href="<%: parametrosComprar %>" >IR A COMPRAR</a></button>                    
-                    <button><a id="btnAgregarYSeguir" href="<%: parametrosSeguir %>" >AGREGAR Y SEGUIR COMPRANDO</a></button>
-                    
-                   
+                    <asp:Button ID="btnAgregarYSeguir" runat="server" Text="AGREGAR Y SEGUIR COMPRANDO" OnClick="btnAgregarYSeguir_Click" CssClass="btn btn-primary" />
+                                      
                 </div>
            </div>    
 

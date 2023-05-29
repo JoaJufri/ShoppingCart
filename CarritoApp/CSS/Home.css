@@ -5,7 +5,7 @@
         background-image: linear-gradient( to bottom right, aquamarine, #0D6EFD );
     */
     background-image: url("https://c.pxhere.com/images/0b/ab/c37906f4ec93b6fb04854fa936b0-1676058.jpg!d");
-    background-size: cover; /* Ajusta el tamaño de la imagen al contenedor */
+    background-size: cover; 
     background-position: center;
     margin-bottom: 50px;
     display: flex;
@@ -15,20 +15,13 @@
     margin-top:0px;
 }
 
-#btnVermas {
-    width: 100px !important;
-    height: 100px !important;
-    background-color: #0D6EFD;
-    color: white;
-}
-
 
 .btn-block{
     width:100%;
 }
 
-#btnVermas{
-    
+.btn-vermas {
+    padding: 20px;
 }
 
 h1 {
