@@ -1,5 +1,6 @@
 ﻿body {
-    background-image: linear-gradient( to bottom right, #8dbafc, #84C6FE );
+   /* background-image: linear-gradient( to bottom right, #F0F6FC, #84C6FE );*/
+    background-color: #F0F6FC;
     position: relative;
     display: flex;
     flex-direction: column;

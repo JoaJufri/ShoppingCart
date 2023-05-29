@@ -116,15 +116,16 @@ namespace CarritoApp
             {
                 if (item.IdArticulo == carritoItem.IdArticulo)
                 {
-                    item.Cantidad += carritoItem.Cantidad;
-                    idArticuloExistente = true;
+                    item.Cantidad += carritoItem.Cantidad;                    
+                    idArticuloExistente = true;                   
                 }
             }
             if (idArticuloExistente == false)
             {
-                CarritoCantidad item = new CarritoCantidad();
-                miCarrito.Add(item);
+                miCarrito.Add(carritoItem);
             }
+
+            Session["carritoCompra"] = miCarrito;
         }
 
 
