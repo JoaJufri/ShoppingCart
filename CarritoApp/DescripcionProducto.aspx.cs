@@ -1,9 +1,11 @@
-﻿using System;
+﻿using Dominio;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Web.UI.WebControls.WebParts;
 
 namespace CarritoApp
 {
@@ -60,23 +62,71 @@ namespace CarritoApp
 
         protected void btnComprar_Click(object sender, EventArgs e)
         {
-            id_art = int.Parse(Request.QueryString["Id"]);
-            string id_articulo = "Id=" + id_art.ToString();
-            string cant_articulos = "cant_art=" + txtCantidad.ToString();
-            string parametrosComprar = "Carrito.aspx?" + id_articulo + "&" + cant_articulos;
-            Response.Redirect(parametrosComprar);
+                 
+            CarritoCantidad carritoItem = new CarritoCantidad();
+            List<CarritoCantidad> miCarrito = new List<CarritoCantidad>();            
+
+            carritoItem.Cantidad = int.Parse(txtCantidad.Text);
+            carritoItem.IdArticulo = int.Parse(Request.QueryString["Id"]);            
+              
+            
+            if (Session["CarritoCompra"] == null)
+            {
+                miCarrito.Add(carritoItem);
+                Session.Add("carritoCompra", miCarrito);
+            }
+            else
+            {
+                agregarItem(carritoItem);
+            }
+            
+            Response.Redirect("Carrito.aspx?", false);
         } 
         
         protected void btnAgregarYSeguir_Click(object sender, EventArgs e)
         {
-            id_art = int.Parse(Request.QueryString["Id"]);
-            string id_articulo = "Id=" + id_art.ToString();
-            string cant_articulos = "cant_art=" + txtCantidad.ToString();
-            string parametrosSeguir = "Default.aspx#title?" + id_articulo + "&" + cant_articulos;
-            Response.Redirect(parametrosSeguir);
+            CarritoCantidad carritoItem = new CarritoCantidad();
+            List<CarritoCantidad> miCarrito = new List<CarritoCantidad>();
+
+            carritoItem.Cantidad = int.Parse(txtCantidad.Text);
+            carritoItem.IdArticulo = int.Parse(Request.QueryString["Id"]);
+
+
+            if (Session["CarritoCompra"] == null)
+            {
+                miCarrito.Add(carritoItem);
+                Session.Add("carritoCompra", miCarrito);
+            }
+            else
+            {
+                agregarItem(carritoItem);
+            }
+
+
+            Response.Redirect("Default.aspx#title?", false);
         }
-        
-        
+
+        public void agregarItem(CarritoCantidad carritoItem) {
+            List<CarritoCantidad> miCarrito = new List<CarritoCantidad>();
+            miCarrito = (List<CarritoCantidad>)Session["carritoCompra"];
+
+            bool idArticuloExistente = false;
+
+            foreach (var item in miCarrito)
+            {
+                if (item.IdArticulo == carritoItem.IdArticulo)
+                {
+                    item.Cantidad += carritoItem.Cantidad;
+                    idArticuloExistente = true;
+                }
+            }
+            if (idArticuloExistente == false)
+            {
+                CarritoCantidad item = new CarritoCantidad();
+                miCarrito.Add(item);
+            }
+        }
+
 
     }
 }
