@@ -22,7 +22,7 @@
         %>
         <div class="col">
             <div class="card">
-                <img src="<%: listaImg[i].ImagenUrl %>" class="card-img-top" alt="img art. <%: item.Nombre %>">
+                <img src="<%: listaImg[i].ImagenUrl %>" class="card-img-top" alt="img art. <%: item.Nombre %>" onerror="this.src='https://www.publicdomainpictures.net/pictures/280000/velka/not-found-image-15383864787lu.jpg'">
                 <div class="card-body">
                     <h5 class="card-title"><%: item.Nombre %> </h5>
                     <p class="card-text">Marca: <%: item.Marca %> </p>
