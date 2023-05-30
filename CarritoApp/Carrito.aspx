@@ -134,7 +134,7 @@
                                 decimal subTotal = articulo.Precio * cantidadArticulo;
                                 totalInicial += subTotal;
                     %>
-                    <div class="item-row">
+                    <div class="item-row" data-id="<%= articulo.Id %>">
                         <img src="<%= imageUrl %>" class="item-image" onerror="this.src='https://www.publicdomainpictures.net/pictures/280000/velka/not-found-image-15383864787lu.jpg'" />
                         <div class="item-details">
                             <span class="item-name"><%= articulo.Nombre %></span>
@@ -144,6 +144,7 @@
                             <input type="number" min="1" value="<%= cantidadArticulo %>" placeholder="" />
                         </div>
                         <span class="item-total">Total: $<%= subTotal.ToString("0.00") %></span>
+                       <asp:Button ID="btnEliminar" CssClass="fa fa-trash btn-eliminar" runat="server"/>
                     </div>
                     <% }
                         }%>
