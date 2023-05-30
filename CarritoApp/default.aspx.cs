@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Negocio;
 using Dominio;
+using System.Web.Services.Description;
 
 namespace CarritoApp
 {
@@ -29,6 +30,15 @@ namespace CarritoApp
             Response.Redirect("Default.aspx#title");
         }
 
+        protected void btFiltro_Click(object sender, EventArgs e)
+        {   
+            //Filtros
 
+            //string criterio = ddl_Criterio.SelectedItem.Text;
+            //if (criterio == "Marca") {
+                
+                
+            //}
+        }
     }
 }

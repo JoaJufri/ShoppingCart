@@ -11,7 +11,15 @@
     <div id="title">
         <h1 id="lista-articulos">Lista de Articulos</h1>
     </div>
-
+    <div class="filtros">
+        <asp:DropDownList ID="ddl_Criterio" runat="server">
+            <asp:ListItem Text="Categoria" />
+            <asp:ListItem Text="Marca" />
+            <asp:ListItem Text="Precio" />
+        </asp:DropDownList>
+        <asp:TextBox ID="tbFiltro" runat="server"></asp:TextBox>
+        <asp:Button ID="btFiltro" Text="Buscar" OnClick="btFiltro_Click" runat="server"/>
+    </div>
 
     <div class="row row-cols-1 row-cols-md-2 g-4">
 
