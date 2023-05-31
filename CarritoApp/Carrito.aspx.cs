@@ -95,7 +95,30 @@ namespace CarritoApp
                 // Vuelve a cargar los datos en el GridView o realizar cualquier actualización necesaria
                 Response.Redirect(Request.RawUrl);
             }
+
         }
+        protected void txtCantidad_TextChanged(object sender, EventArgs e)
+        {
+            TextBox txtCantidad = (TextBox)sender;
+            GridViewRow row = (GridViewRow)txtCantidad.NamingContainer;
+            int cantidadId = row.DataItemIndex;
+            int nuevaCantidad;
+
+            if (int.TryParse(txtCantidad.Text, out nuevaCantidad))
+            {
+                // Actualizar la cantidad en la listaID
+                if (cantidadId >= 0 && cantidadId < listaID.Count)
+                {
+                    listaID[cantidadId].Cantidad = nuevaCantidad;
+                }
+
+                // Realizar las acciones adicionales que necesites después de actualizar la cantidad
+
+                // Volver a cargar los datos en el GridView o realizar cualquier actualización necesaria
+                Response.Redirect(Request.RawUrl);
+            }
+        }
+
 
     }
 }

@@ -74,6 +74,18 @@
     </style>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="text/javascript">
+    function updateCantidad(input) {
+        var cantidadId = input.getAttribute("data-cantidad-id");
+        var nuevaCantidad = input.value;
+
+        // Realiza cualquier lógica adicional que necesites con la nueva cantidad
+
+        // Realiza una llamada al código del servidor para actualizar la cantidad en listaID
+        __doPostBack("ActualizarCantidad", cantidadId + "|" + nuevaCantidad);
+    }
+    </script>
+
+    <script type="text/javascript">
         $(document).ready(function () {
             // Calcular el monto total inicial
             calcularTotal();
@@ -132,9 +144,8 @@
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Cantidad">
                             <ItemTemplate>
-                                <div class="item-quantity">
-                                    <input type="number" min="1" value='<%# Eval("Cantidad") %>' placeholder="" />
-                                </div>
+                                <asp:TextBox ID="txtCantidad" runat="server" Text='<%# Eval("Cantidad") %>' CssClass="item-quantity" type="number" style="max-width: 3rem"
+                                    data-cantidad-id='<%# Container.DataItemIndex %>' OnTextChanged="txtCantidad_TextChanged" AutoPostBack="true"></asp:TextBox>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Total">
