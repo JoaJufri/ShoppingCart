@@ -153,7 +153,7 @@
                         <asp:TemplateField HeaderText="Cantidad">
                             <ItemTemplate>
                                 <asp:TextBox ID="txtCantidad" runat="server" Text='<%# Eval("Cantidad") %>'
-                                    CssClass="item-quantity" type="number" style="max-width: 3rem"
+                                    CssClass="item-quantity" type="number" Style="max-width: 3rem"
                                     data-cantidad-id='<%# Container.DataItemIndex %>' OnTextChanged="txtCantidad_TextChanged"
                                     AutoPostBack="true"></asp:TextBox>
                             </ItemTemplate>
@@ -171,26 +171,21 @@
                         </asp:TemplateField>
                     </Columns>
                 </asp:GridView>
-
+    <%if (listaID != null) { %>
                 <div class="total-section">
-                    <span id="lblTotal"></span>
+                    <span>Total General:
+                        <asp:Label ID="lblTotalGeneral" runat="server" CssClass="item-total" Text="$0.00"></asp:Label></span>
                 </div>
-                
-                <div class="total-section">
-                    <span>Total General: <asp:Label ID="lblTotalGeneral" runat="server" CssClass="item-total" Text="$0.00"></asp:Label></span>
-                </div>
-
                 <div class="content-wrapper">
                     <button class="btn-pasar-pagar" onclick="btnPasarPagar_Click()">Pasar a pagar</button>
                 </div>
+    <% } %>
             </ContentTemplate>
         </asp:UpdatePanel>
     </div>
-
     <script type="text/javascript">
         function btnPasarPagar_Click() {
             var mensaje = "Esta funcionalidad estará disponible en una futura actualización.";
             alert(mensaje);
-        }
     </script>
 </asp:Content>

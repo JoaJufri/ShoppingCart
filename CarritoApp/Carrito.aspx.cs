@@ -20,6 +20,11 @@ namespace CarritoApp
         protected void Page_Load(object sender, EventArgs e)
         {
             listaID = (List<CarritoCantidad>)Session["carritoCompra"];
+            if (listaID != null)
+            {
+                lblTotalGeneral.Text = CalcularTotalGeneral().ToString();
+            }
+
             if (!IsPostBack)
             {
 
@@ -111,14 +116,20 @@ namespace CarritoApp
                 {
                     listaID[cantidadId].Cantidad = nuevaCantidad;
                 }
-
-                // Realizar las acciones adicionales que necesites después de actualizar la cantidad
-
-                // Volver a cargar los datos en el GridView o realizar cualquier actualización necesaria
                 Response.Redirect(Request.RawUrl);
+
             }
         }
-
+        public decimal CalcularTotalGeneral()
+        {
+            decimal total = 0;
+            ArticuloNegocio negocio = new ArticuloNegocio();
+            foreach (var item in listaID)
+            {
+                total += item.Cantidad * negocio.obtenerArticulo(item.IdArticulo).Precio;
+            }
+            return total;
+        }
 
     }
 }
