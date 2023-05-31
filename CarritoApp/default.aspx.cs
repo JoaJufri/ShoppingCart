@@ -42,27 +42,45 @@ namespace CarritoApp
         {
             listaFiltrados = new List<Articulo>();
             string criterio = ddl_Criterio.SelectedItem.Text;
-            if (criterio == "Marca")
+
+
+            switch (criterio)
             {
-                foreach (var item in listaArt)
-                {
-                    if (item.Marca.ToString() == tbFiltro.Text.ToString())
+                case "Marca":
+                    foreach (var item in listaArt)
                     {
-                        listaFiltrados.Add(item);
+                        if (item.Marca.ToString() == tbFiltro.Text.ToString())
+                        {
+                            listaFiltrados.Add(item);
+                        }
                     }
-                }
-                listaArt = listaFiltrados;
 
+                    break;
+                case "Categoria":
+                    foreach (var item in listaArt)
+                    {
+                        if (item.Categoria.ToString() == tbFiltro.Text.ToString())
+                        {
+                            listaFiltrados.Add(item);
+                        }
+                    }
+
+                    break;
+                case "Precio":
+                    foreach (var item in listaArt)
+                    {
+                        if (item.Precio == decimal.Parse(tbFiltro.Text))
+                        {
+                            listaFiltrados.Add(item);
+                        }
+                    }
+
+                    break;
+
+                default:
+                    break;
             }
-            
-            //Filtros
-
-
-            //Si no hay coincidencias, devuelve la lista original
-            //if (listaFiltrados.Count <= 0)
-            //{
-            //    listaArt = listaFiltrados; 
-            //}
+            listaArt = listaFiltrados;
 
         }
     }
