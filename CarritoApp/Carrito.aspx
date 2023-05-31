@@ -8,9 +8,10 @@
             padding: 0;
         }
 
-        body{
+        body {
             min-height: 100vh;
         }
+
         .item-list {
             display: flex;
             flex-direction: column;
@@ -53,8 +54,9 @@
         .item-total {
             margin-left: 10px;
         }
-        #carrito{
-            position:relative;
+
+        #carrito {
+            position: relative;
         }
 
         .content-wrapper {
@@ -80,23 +82,11 @@
             cursor: pointer;
         }
 
-            .btn-pasar-pagar:hover {
-                background-color: #5f9ea0;
-            }
+        .btn-pasar-pagar:hover {
+            background-color: #5f9ea0;
+        }
     </style>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script type="text/javascript">
-    function updateCantidad(input) {
-        var cantidadId = input.getAttribute("data-cantidad-id");
-        var nuevaCantidad = input.value;
-
-        // Realiza cualquier lógica adicional que necesites con la nueva cantidad
-
-        // Realiza una llamada al código del servidor para actualizar la cantidad en listaID
-        __doPostBack("ActualizarCantidad", cantidadId + "|" + nuevaCantidad);
-    }
-    </script>
-
     <script type="text/javascript">
         $(document).ready(function () {
             // Calcular el monto total inicial
@@ -146,7 +136,8 @@
                     <Columns>
                         <asp:TemplateField HeaderText="Imagen">
                             <ItemTemplate>
-                                <img src='<%# Eval("PrimeraImagen") %>' class="item-image" onerror="this.src='https://c.pxhere.com/images/47/83/d6e362ca869395f9db5b5a3d0659-1675158.png!d'" />
+                                <img src='<%# Eval("PrimeraImagen") %>' class="item-image"
+                                    onerror="this.src='https://c.pxhere.com/images/47/83/d6e362ca869395f9db5b5a3d0659-1675158.png!d'" />
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Nombre">
@@ -161,8 +152,10 @@
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Cantidad">
                             <ItemTemplate>
-                                <asp:TextBox ID="txtCantidad" runat="server" Text='<%# Eval("Cantidad") %>' CssClass="item-quantity" type="number" style="max-width: 3rem"
-                                    data-cantidad-id='<%# Container.DataItemIndex %>' OnTextChanged="txtCantidad_TextChanged" AutoPostBack="true"></asp:TextBox>
+                                <asp:TextBox ID="txtCantidad" runat="server" Text='<%# Eval("Cantidad") %>'
+                                    CssClass="item-quantity" type="number" style="max-width: 3rem"
+                                    data-cantidad-id='<%# Container.DataItemIndex %>' OnTextChanged="txtCantidad_TextChanged"
+                                    AutoPostBack="true"></asp:TextBox>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Total">
@@ -181,6 +174,10 @@
 
                 <div class="total-section">
                     <span id="lblTotal"></span>
+                </div>
+                
+                <div class="total-section">
+                    <span>Total General: <asp:Label ID="lblTotalGeneral" runat="server" CssClass="item-total" Text="$0.00"></asp:Label></span>
                 </div>
 
                 <div class="content-wrapper">
