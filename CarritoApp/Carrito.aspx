@@ -2,6 +2,15 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        body{
+            min-height: 100vh;
+        }
         .item-list {
             display: flex;
             flex-direction: column;
@@ -44,9 +53,12 @@
         .item-total {
             margin-left: 10px;
         }
+        #carrito{
+            position:relative;
+        }
 
         .content-wrapper {
-            position: fixed;
+            position: absolute;
             bottom: 0;
             left: 0;
             width: 100%;
@@ -112,6 +124,11 @@
                 // Actualizar el total general
                 $("#lblTotal").text("Total: $" + total.toFixed(2));
             }
+        });
+    </script>
+    <script type="text/javascript">
+        window.addEventListener('resize', function () {
+            document.body.style.minHeight = window.innerHeight + 'px';
         });
     </script>
 </asp:Content>

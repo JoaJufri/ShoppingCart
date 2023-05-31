@@ -1,11 +1,16 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="DescripcionProducto.aspx.cs" Inherits="CarritoApp.DescripcionProducto" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-     <link href="CSS/DescripcionProducto.css" rel="stylesheet" type="text/css" />
+    <link href="CSS/DescripcionProducto.css" rel="stylesheet" type="text/css" />   
+    <script type="text/javascript">
+        window.addEventListener('resize', function () {
+            document.body.style.minHeight = window.innerHeight + 'px';
+        });
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
      <div class="container text-center">      
-      <div class="row">
+      <div class="row principal">
 
         <div class="col-1">
 
@@ -107,9 +112,11 @@
                     <hr />
                     <p>
                         <asp:Label ID="lblcantidad" runat="server" Text="Cantidad:"></asp:Label>
-                        <asp:TextBox ID="txtCantidad" type="number" runat="server"></asp:TextBox>
-                        <asp:Label ID="LabelMensaje" runat="server" Text=""></asp:Label>
+                        <asp:TextBox ID="txtCantidad" type="number" runat="server"></asp:TextBox>                        
                      </p>
+                    <p>
+                        <asp:Label ID="LabelMensaje" runat="server" Text=""></asp:Label>
+                    </p>
 
                     <asp:Button ID="btnComprar" runat="server" Text="IR A COMPRAR" OnClick="btnComprar_Click" CssClass="btn btn-primary" />
                     

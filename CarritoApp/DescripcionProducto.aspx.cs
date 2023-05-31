@@ -63,7 +63,14 @@ namespace CarritoApp
         {
             if (string.IsNullOrEmpty(txtCantidad.Text))
             {
-                LabelMensaje.Text = "Debes completar el campo número.";
+                LabelMensaje.Text = "Debes indicar la cantidad.";
+                LabelMensaje.ForeColor = System.Drawing.Color.Red;
+                return false;
+            }
+            else if (int.Parse(txtCantidad.Text)<1)
+            {
+                LabelMensaje.Text = "La cantidad debe ser un número positivo.";
+                LabelMensaje.ForeColor = System.Drawing.Color.Red;
                 return false;
             }
             else
