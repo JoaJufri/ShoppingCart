@@ -21,7 +21,7 @@
 
         .item-image {
             max-width: 100px;
-            margin-right: 10px; /* Agregar margen derecho */
+            margin-right: 10px;
         }
 
         .item-details {
@@ -46,32 +46,31 @@
         }
 
         .content-wrapper {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-}
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+        }
 
-.total-section {
-    background-color: #f1f1f1;
-    padding: 10px;
-    text-align: right;
-}
+        .total-section {
+            background-color: #f1f1f1;
+            padding: 10px;
+            text-align: right;
+        }
 
-.btn-pasar-pagar {
-    background-color: #87cefa;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-}
+        .btn-pasar-pagar {
+            background-color: #87cefa;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
 
-.btn-pasar-pagar:hover {
-    background-color: #5f9ea0;
-}
-
+            .btn-pasar-pagar:hover {
+                background-color: #5f9ea0;
+            }
     </style>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="text/javascript">
@@ -109,55 +108,64 @@
     <h1>Carrito de Compras</h1>
 
     <div id="carrito">
-        <updatepanel>
-            <div id="ContentCarrito">
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+        <asp:UpdatePanel ID="UpdatePanelCarrito" runat="server">
+            <ContentTemplate>
                 <asp:Label Visible="false" runat="server" ID="lblMessage"></asp:Label>
-                <div class="item-list">
-                    <% 
-                        decimal totalInicial = 0;
-                        if (articulos != null)
-                        {
-                            foreach (var articulo in articulos)
-                            {
-                                var imagenes = imagen.listar(articulo.Id);
-                                string imageUrl = "https://www.publicdomainpictures.net/pictures/280000/velka/not-found-image-15383864787lu.jpg";
-                                if (imagenes.Count > 0 && !string.IsNullOrEmpty(imagenes[0].ImagenUrl))
-                                {
-                                    imageUrl = imagenes[0].ImagenUrl;
-                                }
-                                else
-                                {
-                                    imageUrl = "https://www.publicdomainpictures.net/pictures/280000/velka/not-found-image-15383864787lu.jpg";
-                                }
+                <asp:GridView ID="gvCarrito" runat="server" AutoGenerateColumns="False" CssClass="item-grid"
+                    OnRowCommand="gvCarrito_RowCommand" DataSource='<%# carritoSession %>'>
+                    <Columns>
+                        <asp:TemplateField HeaderText="Imagen">
+                            <ItemTemplate>
+                                <img src='<%# Eval("PrimeraImagen") %>' class="item-image" onerror="this.src='https://www.publicdomainpictures.net/pictures/280000/velka/not-found-image-15383864787lu.jpg'" />
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Nombre">
+                            <ItemTemplate>
+                                <span class="item-name"><%# Eval("Nombre") %></span>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Precio">
+                            <ItemTemplate>
+                                <span class="item-price">$<%# Eval("Precio") %></span>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Cantidad">
+                            <ItemTemplate>
+                                <div class="item-quantity">
+                                    <input type="number" min="1" value='<%# Eval("Cantidad") %>' placeholder="" />
+                                </div>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Total">
+                            <ItemTemplate>
+                                <span class="item-total">Total: $<%# (Convert.ToDecimal(Eval("Precio")) * Convert.ToInt32(Eval("Cantidad"))).ToString("0.00") %></span>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Eliminar">
+                            <ItemTemplate>
+                                <asp:Button ID="btnEliminar" CssClass="fa fa-trash btn-eliminar" runat="server"
+                                    CommandName="Eliminar" CommandArgument='<%# Container.DataItemIndex %>' Text="Eliminar" />
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                    </Columns>
+                </asp:GridView>
 
-                                int cantidadArticulo = ObtenerCantidadArticulo(articulo.Id);
-                                decimal subTotal = articulo.Precio * cantidadArticulo;
-                                totalInicial += subTotal;
-                    %>
-                    <div class="item-row" data-id="<%= articulo.Id %>">
-                        <img src="<%= imageUrl %>" class="item-image" onerror="this.src='https://www.publicdomainpictures.net/pictures/280000/velka/not-found-image-15383864787lu.jpg'" />
-                        <div class="item-details">
-                            <span class="item-name"><%= articulo.Nombre %></span>
-                            <span class="item-price">$<%= articulo.Precio %></span>
-                        </div>
-                        <div class="item-quantity">
-                            <input type="number" min="1" value="<%= cantidadArticulo %>" placeholder="" />
-                        </div>
-                        <span class="item-total">Total: $<%= subTotal.ToString("0.00") %></span>
-                       <asp:Button ID="btnEliminar" CssClass="fa fa-trash btn-eliminar" runat="server"/>
-                    </div>
-                    <% }
-                        }%>
+                <div class="total-section">
+                    <span id="lblTotal"></span>
                 </div>
-            </div>
-        </updatepanel>
+
+                <div class="content-wrapper">
+                    <button class="btn-pasar-pagar" onclick="btnPasarPagar_Click()">Pasar a pagar</button>
+                </div>
+            </ContentTemplate>
+        </asp:UpdatePanel>
     </div>
 
-    <div class="content-wrapper">
-        <div class="total-section">
-            <label id="lblTotal">Total: $<%= totalInicial.ToString("0.00") %></label>
-            <asp:Button ID="btnPasarPagar" runat="server" Text="Pasar a pagar" CssClass="btn-pasar-pagar" OnClick="btnPasarPagar_Click" />
-        </div>
-    </div>
+    <script type="text/javascript">
+        function btnPasarPagar_Click() {
+            var mensaje = "Esta funcionalidad estará disponible en una futura actualización.";
+            alert(mensaje);
+        }
+    </script>
 </asp:Content>
-
