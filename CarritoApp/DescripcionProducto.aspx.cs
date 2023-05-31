@@ -39,29 +39,47 @@ namespace CarritoApp
                 indice ++;
             }
 
-            try
+            if (listaArt[indiceArt].Descripcion.ToString() != null && listaArt[indiceArt].Descripcion.ToString().Length != 0)
             {
                 lblDescripcion.Text = listaArt[indiceArt].Descripcion.ToString();
             }
-            catch{
+            else{
                 lblDescripcion.Text = "Sin descripción";
             }
-            try
+
+            if (listaArt[indiceArt].Marca.ToString() != null && listaArt[indiceArt].Marca.ToString().Length != 0)
             {
                 txtMarca.Text = listaArt[indiceArt].Marca.Descripcion.ToString();
             }
-            catch
-            {
+            else
+            {                
                 lblDescripcion.Text = "Sin especificar";
             }
 
 
         }
-        
-                    
+
+        public bool validarCampoCantidad()
+        {
+            if (string.IsNullOrEmpty(txtCantidad.Text))
+            {
+                LabelMensaje.Text = "Debes completar el campo número.";
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+
+        }
+
 
         protected void btnComprar_Click(object sender, EventArgs e)
         {
+            if (!validarCampoCantidad())
+            {
+                return;
+            }
                  
             CarritoCantidad carritoItem = new CarritoCantidad();
             List<CarritoCantidad> miCarrito = new List<CarritoCantidad>();            
@@ -85,6 +103,10 @@ namespace CarritoApp
         
         protected void btnAgregarYSeguir_Click(object sender, EventArgs e)
         {
+            if (!validarCampoCantidad())
+            {
+                return;
+            }
             CarritoCantidad carritoItem = new CarritoCantidad();
             List<CarritoCantidad> miCarrito = new List<CarritoCantidad>();
 
@@ -127,6 +149,8 @@ namespace CarritoApp
 
             Session["carritoCompra"] = miCarrito;
         }
+
+        
 
 
     }

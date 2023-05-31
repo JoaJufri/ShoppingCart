@@ -108,6 +108,7 @@
                     <p>
                         <asp:Label ID="lblcantidad" runat="server" Text="Cantidad:"></asp:Label>
                         <asp:TextBox ID="txtCantidad" type="number" runat="server"></asp:TextBox>
+                        <asp:Label ID="LabelMensaje" runat="server" Text=""></asp:Label>
                      </p>
 
                     <asp:Button ID="btnComprar" runat="server" Text="IR A COMPRAR" OnClick="btnComprar_Click" CssClass="btn btn-primary" />
