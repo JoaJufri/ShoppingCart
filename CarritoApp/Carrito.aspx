@@ -117,7 +117,7 @@
                     <Columns>
                         <asp:TemplateField HeaderText="Imagen">
                             <ItemTemplate>
-                                <img src='<%# Eval("PrimeraImagen") %>' class="item-image" onerror="this.src='https://www.publicdomainpictures.net/pictures/280000/velka/not-found-image-15383864787lu.jpg'" />
+                                <img src='<%# Eval("PrimeraImagen") %>' class="item-image" onerror="this.src='https://c.pxhere.com/images/47/83/d6e362ca869395f9db5b5a3d0659-1675158.png!d'" />
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Nombre">

@@ -51,7 +51,7 @@
                         if (i == 0)
                         { %>      
                             <div class="carousel-item active">
-                                <img src="<%=urlImg %>" style="height: 400px; overflow:hidden" alt="<%=listaArt[indiceArt].Nombre %>">
+                                <img src="<%=urlImg %>" style="height: 400px; overflow:hidden" alt="<%=listaArt[indiceArt].Nombre %>" onerror="this.src='https://c.pxhere.com/images/47/83/d6e362ca869395f9db5b5a3d0659-1675158.png!d'">
                             </div>
                       <%}
                         else { %>      

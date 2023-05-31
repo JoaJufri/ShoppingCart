@@ -80,7 +80,7 @@ namespace CarritoApp
                 agregarItem(carritoItem);
             }
             
-            Response.Redirect("Carrito.aspx?", false);
+            Response.Redirect("Carrito.aspx", false);
         } 
         
         protected void btnAgregarYSeguir_Click(object sender, EventArgs e)
@@ -103,7 +103,7 @@ namespace CarritoApp
             }
 
 
-            Response.Redirect("Default.aspx#title?", false);
+            Response.Redirect("Default.aspx#title", false);
         }
 
         public void agregarItem(CarritoCantidad carritoItem) {
