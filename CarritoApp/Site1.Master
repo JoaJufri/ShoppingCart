@@ -6,7 +6,8 @@
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <link href="CSS/Master.css" rel="stylesheet" type="text/css" />    
+    <link href="CSS/Master.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
     <title>Carrito App</title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -14,7 +15,7 @@
 <body>
     <form id="form1" runat="server">
         <header>
-             <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-primary">
+            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-primary">
                 <div class="container">
                     <a class="navbar-brand" runat="server" href="Default.aspx">Home</a>
                     <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Alternar navegación" aria-controls="navbarSupportedContent"
@@ -23,30 +24,40 @@
                     </button>
                     <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
                         <ul class="navbar-nav flex-grow-1">
-                            <li class="nav-item"><a class="nav-link" runat="server" href="Default.aspx#title">Ver productos</a></li>
-                            <li class="nav-item"><a class="nav-link" runat="server" href="Carrito.aspx">Carrito de Compras</a></li>
+                            <li class="nav-item">
+                                <a class="nav-link" runat="server" href="Default.aspx#title">Ver productos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a runat="server" href="Carrito.aspx">
+                                    <i class="fas fa-shopping-cart" style="color: white; vertical-align: -0.4rem; margin-left:1rem"></i>
+                                    <span class="badge rounded-pill bg-danger">
+                                        <% int cantidadCarrito = ObtenerCantidadCarrito(); %>
+                                        <%= cantidadCarrito %>
+                                    </span>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>
             </nav>
         </header>
-      
+
         <div class="placeholder">
-           <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
-            </asp:ContentPlaceHolder> 
-       </div> 
-       
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-        </asp:ContentPlaceHolder>        
-       
-       
-     
+        </asp:ContentPlaceHolder>
+
+
+
         <footer>
             <hr />
             <p>&copy; <%: DateTime.Now.Year %> - Carrito de Compras</p>
         </footer>
     </form>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
-    
+
 </body>
 </html>
