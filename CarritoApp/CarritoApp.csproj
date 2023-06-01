@@ -73,6 +73,7 @@
     <Content Include="DescripcionProducto.aspx" />
     <Content Include="Global.asax" />
     <Content Include="CSS\Home.css" />
+    <Content Include="Scripts\scriptCarrito.js" />
     <Content Include="Web.config" />
     <Content Include="default.aspx" />
   </ItemGroup>
@@ -122,9 +123,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Imagenes\" />
     <Folder Include="img\" />
     <Folder Include="Models\" />
-    <Folder Include="Script\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Dominio\Dominio.csproj">
