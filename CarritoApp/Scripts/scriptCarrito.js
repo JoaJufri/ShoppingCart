@@ -29,3 +29,4 @@ $(document).ready(function () {
 function btnPasarPagar_Click() {
     var mensaje = "Esta funcionalidad estará disponible en una futura actualización.";
     alert(mensaje);
+}
