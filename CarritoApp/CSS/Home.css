@@ -114,3 +114,12 @@ h1 {
     border:1px solid black;
     text-indent:15px;
 }
+
+.lb_listaNulla {
+    align-self: center;
+    font-size: 30px;
+    color: #0D6EFD;
+    display:block;
+    position:relative;
+    left:20%;
+}

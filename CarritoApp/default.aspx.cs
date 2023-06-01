@@ -86,6 +86,9 @@ namespace CarritoApp
             }
             listaArt = listaFiltrados;
 
+            if(listaArt.Count <= 0) {
+                lbListaNula.Visible = true;
+            }
         }
     }
 }

@@ -27,6 +27,7 @@
                     <asp:Button ID="btFiltro" Text="Buscar" OnClick="btFiltro_Click" CssClass="btn_Buscar" runat="server" />
                 </div>
 
+                <asp:Label ID="lbListaNula" runat="server" Visible="false" Text="No se encontraron coincidencias." CssClass="lb_listaNulla"></asp:Label>
 
                 <div class="row row-cols-1 row-cols-md-2 g-4">
 
