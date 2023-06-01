@@ -52,12 +52,12 @@
                         if (i == 0)
                         { %>      
                             <div class="carousel-item active">
-                                <img src="<%=urlImg %>" style="height: 400px; overflow:hidden" alt="<%=listaArt[indiceArt].Nombre %>" onerror="this.src='https://c.pxhere.com/images/47/83/d6e362ca869395f9db5b5a3d0659-1675158.png!d'">
+                                <img src="<%=urlImg %>" alt="<%=listaArt[indiceArt].Nombre %>" onerror="this.src='https://c.pxhere.com/images/47/83/d6e362ca869395f9db5b5a3d0659-1675158.png!d'">
                             </div>
                       <%}
                         else { %>      
                             <div class="carousel-item">
-                                <img src="<%=urlImg %>" style="height: 400px; overflow:hidden" alt="<%=listaArt[indiceArt].Nombre %>">
+                                <img src="<%=urlImg %>"  alt="<%=listaArt[indiceArt].Nombre %>" onerror="this.src='https://c.pxhere.com/images/47/83/d6e362ca869395f9db5b5a3d0659-1675158.png!d'">
                             </div>
                      <% } %>
                      <% i += 1; %>                            
@@ -68,7 +68,7 @@
                 {
                             %>
                     <div class="carousel-item active">
-                        <img src="https://c.pxhere.com/images/47/83/d6e362ca869395f9db5b5a3d0659-1675158.png!d" style="height: 400px; overflow:hidden" alt="<%=listaArt[indiceArt].Nombre %>">
+                        <img src="https://c.pxhere.com/images/47/83/d6e362ca869395f9db5b5a3d0659-1675158.png!d" alt="<%=listaArt[indiceArt].Nombre %>">
                     </div>
                 <%
                 }
@@ -90,7 +90,7 @@
             <div class="col-4">
                 <div class="row">
                     <h2><%=listaArt[indiceArt].Nombre %></h2>
-                    <asp:Label ID="lblDescripcion" runat="server" Text="" style="float:left;"></asp:Label>    
+                    <asp:Label ID="lblDescripcion" runat="server" Text=""></asp:Label>    
                 </div>
                 <div class="row">
                      <hr />
