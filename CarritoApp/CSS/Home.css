@@ -19,8 +19,8 @@
 
 
 #title {
-    display:flex;
-    justify-content:center;
+    display: flex;
+    justify-content: center;
     align-items: center;
 }
 
@@ -37,6 +37,7 @@
 h1 {
     color: #0D6EFD;
     font-size: 70px;
+    text-align:center;
 }
 
 #title {
@@ -54,7 +55,7 @@ h1 {
 
 
 .card-img-top {
-    /*min-height: 575px;*/   
+    /*min-height: 575px;*/
 }
 
 
@@ -74,5 +75,42 @@ h1 {
     max-width: 100%;
 }
 
+.filtros {
+    display: flex;
+    justify-content: center;
+    margin-bottom:50px;
+    font-size:18px;
+}
 
+.ddl {
+    padding: 10px;
+    width:15%;
+    border: 1px solid black;
+    border-radius: 15px;
+    text-align: center;
+    margin-right: 5px;
+    background-color: #0D6EFD;
+    color:#fff;
+}
 
+.ddl_item {
+    border-radius: 15px;
+}
+
+.btn_Buscar {
+    width:20%;
+    margin-left: 5px;
+    border: 1px solid black;
+    border-radius: 15px;
+    background-color: #0D6EFD;
+    color: #fff;
+}
+
+.tb_Filtro{
+    width:40%;
+    background-color:#fff;
+    color:black;
+    border-radius:15px;
+    border:1px solid black;
+    text-indent:15px;
+}

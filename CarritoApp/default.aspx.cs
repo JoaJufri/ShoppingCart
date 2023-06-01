@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Negocio;
 using Dominio;
 using System.Web.Services.Description;
+using System.Linq;
 
 namespace CarritoApp
 {
@@ -49,7 +50,7 @@ namespace CarritoApp
                 case "Marca":
                     foreach (var item in listaArt)
                     {
-                        if (item.Marca.ToString() == tbFiltro.Text.ToString())
+                        if (item.Marca.ToString().ToUpper() == tbFiltro.Text.ToUpper())
                         {
                             listaFiltrados.Add(item);
                         }
@@ -59,25 +60,28 @@ namespace CarritoApp
                 case "Categoria":
                     foreach (var item in listaArt)
                     {
-                        if (item.Categoria.ToString() == tbFiltro.Text.ToString())
+                        if (item.Categoria.ToString().ToUpper() == tbFiltro.Text.ToUpper())
                         {
                             listaFiltrados.Add(item);
                         }
                     }
 
                     break;
-                case "Precio":
+                case "Precio Hasta $":
                     foreach (var item in listaArt)
                     {
-                        if (item.Precio == decimal.Parse(tbFiltro.Text))
+                        if (item.Precio <= decimal.Parse(tbFiltro.Text))
                         {
                             listaFiltrados.Add(item);
                         }
                     }
 
+                    listaFiltrados = listaFiltrados.OrderByDescending(listaFiltrados => listaFiltrados.Id).ToList();
                     break;
 
                 default:
+                    
+
                     break;
             }
             listaArt = listaFiltrados;
