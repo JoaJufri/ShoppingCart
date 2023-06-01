@@ -1,13 +1,4 @@
-﻿html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    min-height: 100vh;
-}
-
+﻿
 .principal {
     padding-top: 30px;
 }
@@ -17,7 +8,11 @@ body {
     background-image: linear-gradient( to bottom right, #8dbafc, #0D6EFD );
     height: 450px;
 }
-
+/*
+.carousel-item img {
+    height: 400px;  
+    overflow: hidden;
+}*/
 
 .col-4 {
     display: flex;

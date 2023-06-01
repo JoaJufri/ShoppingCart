@@ -2,12 +2,10 @@
 
 
 body {
-    /* background-image: linear-gradient( to bottom right, #F0F6FC, #84C6FE );*/
     background-color: #F0F6FC;
     position: relative;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
 }
 
 
@@ -26,11 +24,10 @@ header {
     padding-top:50px;   
 }
 
-footer{
-    position:absolute;
-    bottom:0;
+footer{   
     width:100%;
 }
+
 .white-icon {
     color: white;
 }

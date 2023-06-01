@@ -1,16 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="Carrito.aspx.cs" Inherits="CarritoApp.Carrito" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <style>
-        html, body {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            min-height: 100vh;
-        }
+    <style>   
 
         .item-list {
             display: flex;
@@ -116,11 +107,7 @@
             }
         });
     </script>
-    <script type="text/javascript">
-        window.addEventListener('resize', function () {
-            document.body.style.minHeight = window.innerHeight + 'px';
-        });
-    </script>
+   
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
