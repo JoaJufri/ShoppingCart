@@ -1,4 +1,20 @@
-﻿
+﻿#title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+    padding: 40px 0;
+    background-color: lavender;
+}
+
+h1 {
+    color: #0D6EFD;
+    font-size: 45px;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
 .item-row {
     display: flex;
     align-items: center;
@@ -31,7 +47,7 @@
 }
 
 .total-section {
-    background-color: #f1f1f1;
+    background-color: lavender;
     padding: 10px;
     text-align: right;
 }

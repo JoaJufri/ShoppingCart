@@ -4,8 +4,10 @@
     
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
-      <div class="container text-center">      
+    <div id="title">
+            <h1 class="text-center">Detalle del artículo</h1>
+    </div>
+    <div class="container text-center">      
       <div class="row principal">
 
         <div class="col-1">

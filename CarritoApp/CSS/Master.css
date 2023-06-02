@@ -1,11 +1,17 @@
-﻿
+﻿html{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
 
 
 body {
-    background-color: #F0F6FC;
+    background-color:aliceblue;
     position: relative;
     display: flex;
     flex-direction: column;
+    min-height: 100%;
+    min-height: 100vh;
 }
 
 
@@ -20,8 +26,9 @@ header {
     color: white;
 }
 
-.placeholder {   
-    padding-top:50px;   
+.content-placeholder {
+    padding-top: 50px;
+    padding-bottom: 80px;
 }
 
 footer{   
@@ -32,5 +39,8 @@ footer{
     color: white;
 }
 
-
+footer{
+    position:absolute;
+    bottom:0;
+}
 
