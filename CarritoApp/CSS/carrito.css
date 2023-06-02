@@ -1,0 +1,56 @@
+﻿
+.item-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.item-image {
+    max-width: 100px;
+    max-height: 100px;
+    margin-right: 10px;
+}
+
+.item-details {
+    flex-grow: 1;
+    margin-right: 20px;
+}
+
+.item-name {
+    margin-bottom: 5px;
+}
+
+.item-price,
+.item-quantity,
+.item-total {
+    margin-top: 5px;
+}
+
+.total-section {
+    background-color: #f1f1f1;
+    padding: 10px;
+    text-align: right;
+}
+
+.btn-pasar-pagar {
+    background-color: #87cefa;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+    .btn-pasar-pagar:hover {
+        background-color: #5f9ea0;
+    }
+
+.custom-margin {
+    margin-left: 20px;
+}
+

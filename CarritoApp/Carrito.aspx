@@ -2,58 +2,9 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-    <style>
-        .item-row {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 10px;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        .item-image {
-            max-width: 100px;
-            max-height: 100px;
-            margin-right: 10px;
-        }
-
-        .item-details {
-            flex-grow: 1;
-            margin-right: 20px;
-        }
-
-        .item-name {
-            margin-bottom: 5px;
-        }
-
-        .item-price,
-        .item-quantity,
-        .item-total {
-            margin-top: 5px;
-        }
-
-        .total-section {
-            background-color: #f1f1f1;
-            padding: 10px;
-            text-align: right;
-        }
-
-        .btn-pasar-pagar {
-            background-color: #87cefa;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-
-            .btn-pasar-pagar:hover {
-                background-color: #5f9ea0;
-            }
-    </style>
+    <link href="CSS/carrito.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="Scripts/scriptCarrito.js"></script>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -63,7 +14,7 @@
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         <asp:UpdatePanel ID="UpdatePanelCarrito" runat="server">
             <ContentTemplate>
-                <asp:Label Visible="false" runat="server" ID="lblMessage"></asp:Label>
+                <asp:Label Visible="false" runat="server" CssClass="custom-margin" ID="lblMessage"></asp:Label>
                 <div class="container-fluid">
                     <div class="row justify-content-center">
                         <div class="col">
@@ -79,21 +30,22 @@
                                         </asp:TemplateField>
                                         <asp:TemplateField HeaderText="Nombre">
                                             <ItemTemplate>
-                                                <div class="item-details">
+                                                <div class="item-details d-flex align-items-center">
                                                     <h5 class="item-name text-center"><%# Eval("Nombre") %></h5>
                                                 </div>
                                             </ItemTemplate>
                                         </asp:TemplateField>
                                         <asp:TemplateField HeaderText="Precio">
                                             <ItemTemplate>
-                                                <div class="item-details">
-                                                    <span class="item-price">$<%# Eval("Precio") %></span>
+                                                <div class="item-details d-flex align-items-center">
+                                                    <span class="item-price">$<%# Convert.ToDecimal(Eval("Precio")).ToString("0.00") %></span>
                                                 </div>
                                             </ItemTemplate>
                                         </asp:TemplateField>
+
                                         <asp:TemplateField HeaderText="Cantidad">
                                             <ItemTemplate>
-                                                <div class="item-details">
+                                                <div class="item-details d-flex align-items-center">
                                                     <asp:TextBox ID="txtCantidad" runat="server" Text='<%# Eval("Cantidad") %>'
                                                         CssClass="item-quantity" type="number" Style="max-width: 3rem"
                                                         data-cantidad-id='<%# Container.DataItemIndex %>' OnTextChanged="txtCantidad_TextChanged"
@@ -103,7 +55,7 @@
                                         </asp:TemplateField>
                                         <asp:TemplateField HeaderText="Total">
                                             <ItemTemplate>
-                                                <div class="item-details">
+                                                <div class="item-details d-flex align-items-center">
                                                     <span class="item-total">Total: $<%# (Convert.ToDecimal(Eval("Precio")) * Convert.ToInt32(Eval("Cantidad"))).ToString("0.00") %></span>
                                                 </div>
                                             </ItemTemplate>
@@ -134,6 +86,4 @@
             </ContentTemplate>
         </asp:UpdatePanel>
     </div>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="Scripts/scriptCarrito.js"></script>
 </asp:Content>
