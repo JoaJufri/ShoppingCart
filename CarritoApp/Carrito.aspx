@@ -47,7 +47,7 @@
                                             <ItemTemplate>
                                                 <div class="item-details d-flex align-items-center">
                                                     <asp:TextBox ID="txtCantidad" runat="server" Text='<%# Eval("Cantidad") %>'
-                                                        CssClass="item-quantity" type="number" Style="max-width: 3rem"
+                                                        CssClass="item-quantity" min="1" type="number" Style="max-width: 3rem"
                                                         data-cantidad-id='<%# Container.DataItemIndex %>' OnTextChanged="txtCantidad_TextChanged"
                                                         AutoPostBack="true"></asp:TextBox>
                                                 </div>
