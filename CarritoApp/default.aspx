@@ -49,7 +49,7 @@
                                 <p class="card-text">$ <%: item.Precio %> </p>
                                 <% string id_art = "DescripcionProducto.aspx?Id=" + item.Id.ToString();  %>
                                 <div class="btn-block">
-                                    <a id="vermasBTN" href="<%: id_art %>" class="btn btn-primary bg-white text-primary btn-lg btn-block active" role="button" aria-pressed="true">Ver Detalle</a>
+                                    <a id="vermasBTN" href="<%: id_art %>" class="btn btn-primary text-primary btn-lg btn-block active" role="button" aria-pressed="true">Ver Detalle</a>
                                 </div>
                             </div>
                         </div>
