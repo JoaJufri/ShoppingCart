@@ -135,6 +135,15 @@ h1 {
     color: #fff;
 }
 
+.btn_Eliminar {
+    width: 8%;
+    margin-left: 5px;
+    border: 1px solid black;
+    border-radius: 15px;
+    background-color: #e22e2e;
+    color: #fff;
+}
+
 .tb_Filtro {
     width: 40%;
     background-color: #fff;

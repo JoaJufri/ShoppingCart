@@ -106,5 +106,10 @@ namespace CarritoApp
             }
 
         }
+
+        protected void BtEliminar_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

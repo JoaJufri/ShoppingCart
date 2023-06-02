@@ -28,6 +28,7 @@
                     </asp:DropDownList>
                     <asp:TextBox ID="tbFiltro" runat="server" CssClass="tb_Filtro"></asp:TextBox>
                     <asp:Button ID="btFiltro" Text="Buscar" OnClick="btFiltro_Click" OnClientClick="return validarEntrada();" CssClass="btn_Buscar" runat="server" />
+                    <asp:Button ID="BtEliminar" Text="Quitar Filtro" OnClick="BtEliminar_Click" CssClass="btn_Eliminar" runat="server" />
                 </div>
                     <asp:Label ID="lblError" runat="server" Visible="false" CssClass="lb_ErrorPrecio"></asp:Label>
 
