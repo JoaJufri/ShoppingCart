@@ -74,6 +74,7 @@
     <Content Include="Global.asax" />
     <Content Include="CSS\Home.css" />
     <Content Include="Scripts\scriptCarrito.js" />
+    <Content Include="Scripts\scriptHome.js" />
     <Content Include="Web.config" />
     <Content Include="default.aspx" />
   </ItemGroup>

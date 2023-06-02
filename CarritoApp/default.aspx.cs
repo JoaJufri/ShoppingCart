@@ -50,7 +50,7 @@ namespace CarritoApp
                 case "Marca":
                     foreach (var item in listaArt)
                     {
-                        if (item.Marca.ToString().ToUpper() == tbFiltro.Text.ToUpper())
+                        if (item.Marca.ToString().ToUpper().Contains(tbFiltro.Text.ToUpper()))
                         {
                             listaFiltrados.Add(item);
                         }
@@ -60,7 +60,7 @@ namespace CarritoApp
                 case "Categoria":
                     foreach (var item in listaArt)
                     {
-                        if (item.Categoria.ToString().ToUpper() == tbFiltro.Text.ToUpper())
+                        if (item.Categoria.ToString().ToUpper().Contains(tbFiltro.Text.ToUpper()))
                         {
                             listaFiltrados.Add(item);
                         }
@@ -68,6 +68,16 @@ namespace CarritoApp
 
                     break;
                 case "Precio Hasta $":
+                    decimal filtro;
+                    if (!decimal.TryParse(tbFiltro.Text, out filtro))
+                    {
+                        lblError.Visible = true;
+                        lblError.Text = "Ingrese un valor decimal válido.";
+                        return;
+                    }
+                    
+                    lblError.Visible=false;
+
                     foreach (var item in listaArt)
                     {
                         if (item.Precio <= decimal.Parse(tbFiltro.Text))
@@ -80,15 +90,21 @@ namespace CarritoApp
                     break;
 
                 default:
-                    
+
 
                     break;
             }
             listaArt = listaFiltrados;
 
-            if(listaArt.Count <= 0) {
+            if (listaArt.Count <= 0)
+            {
                 lbListaNula.Visible = true;
             }
+            else
+            {
+                lbListaNula.Visible = false;
+            }
+
         }
     }
 }

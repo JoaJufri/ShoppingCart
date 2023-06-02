@@ -2,6 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="CSS/Home.css" rel="stylesheet" type="text/css" />
+    <script src="Scripts/scriptHome.js"></script>
 
 </asp:Content>
 
@@ -26,8 +27,9 @@
                         <asp:ListItem Text="Precio Hasta $" CssClass="ddl_item" />
                     </asp:DropDownList>
                     <asp:TextBox ID="tbFiltro" runat="server" CssClass="tb_Filtro"></asp:TextBox>
-                    <asp:Button ID="btFiltro" Text="Buscar" OnClick="btFiltro_Click" CssClass="btn_Buscar" runat="server" />
+                    <asp:Button ID="btFiltro" Text="Buscar" OnClick="btFiltro_Click" OnClientClick="return validarEntrada();" CssClass="btn_Buscar" runat="server" />
                 </div>
+                    <asp:Label ID="lblError" runat="server" Visible="false" CssClass="lb_ErrorPrecio"></asp:Label>
 
                 <asp:Label ID="lbListaNula" runat="server" Visible="false" Text="No se encontraron coincidencias." CssClass="lb_listaNulla"></asp:Label>
 
