@@ -1,6 +1,22 @@
-﻿
+﻿/*
 .principal {
     padding: 30px 0;
+}
+*/
+#title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0;
+    background-color: lavender;
+}
+
+h1 {
+    color: #0D6EFD;
+    font-size: 45px;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
 }
 
 .carousel-inner {
