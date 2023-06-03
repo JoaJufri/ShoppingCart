@@ -9,7 +9,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div id="title">
-            <h1 class="text-center">Carrito de Compras</h1>
+        <h1 class="text-center">Carrito de Compras</h1>
     </div>
 
     <div id="carrito">
@@ -50,8 +50,8 @@
                                                 <div class="item-details d-flex align-items-center">
                                                     <asp:TextBox ID="txtCantidad" runat="server" Text='<%# Eval("Cantidad") %>'
                                                         CssClass="item-quantity" min="1" type="number" Style="max-width: 3rem"
-                                                        data-cantidad-id='<%# Container.DataItemIndex %>' OnTextChanged="txtCantidad_TextChanged"
-                                                        AutoPostBack="true"></asp:TextBox>
+                                                        data-cantidad-id='<%# Container.DataItemIndex %>'
+                                                        onkeydown="return restrictArrowKeys(event);"></asp:TextBox>
                                                 </div>
                                             </ItemTemplate>
                                         </asp:TemplateField>
