@@ -4,7 +4,7 @@
     align-items: center;
     margin-bottom: 50px;
     padding: 40px 0;
-    background-color: lavender;
+    background-color: #AEB6BF;
 }
 
 h1 {
@@ -47,13 +47,14 @@ h1 {
 }
 
 .total-section {
-    background-color: lavender;
+    background-color: #0D6EFD;
+    color: white;
     padding: 10px;
     text-align: right;
 }
 
 .btn-pasar-pagar {
-    background-color: #87cefa;
+    background-color: #0D6EFD;
     color: #fff;
     padding: 10px 20px;
     border: none;
