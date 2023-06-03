@@ -6,6 +6,7 @@ using System.Web.UI;
 using Dominio;
 using Negocio;
 using System.Web.UI.WebControls;
+using System.Linq;
 
 namespace CarritoApp
 {
@@ -30,6 +31,7 @@ namespace CarritoApp
 
                 if (listaID != null)
                 {
+                    
                     carritoSession.Clear();
                     ArticuloNegocio negocio = new ArticuloNegocio();
                     ImagenNegocio imagenNego = new ImagenNegocio();
@@ -111,14 +113,33 @@ namespace CarritoApp
 
             if (int.TryParse(txtCantidad.Text, out nuevaCantidad))
             {
-                // Actualizar la cantidad en la listaID
-                if (cantidadId >= 0 && cantidadId < listaID.Count)
+                if (nuevaCantidad <= 0)
                 {
-                    listaID[cantidadId].Cantidad = nuevaCantidad;
-                }
-                Response.Redirect(Request.RawUrl);
+                    // Obtener la cantidad original de la sesión
+                    int cantidadOriginal = listaID[cantidadId].Cantidad;
 
+                    // Asignar la cantidad original al TextBox
+                    txtCantidad.Text = cantidadOriginal.ToString();
+                    lblMessage.Visible = true;
+                    lblMessage.Text = "La cantidad debe ser mayor a 0";
+                }
+                else
+                {
+                    // Actualizar la cantidad en la listaID
+                    if (cantidadId >= 0 && cantidadId < listaID.Count)
+                    {
+                        listaID[cantidadId].Cantidad = nuevaCantidad;
+                    }
+                    Response.Redirect(Request.RawUrl);
+                }
             }
+        }
+        public decimal CalcularTotalArticulo(int articuloID)
+        {
+            ArticuloNegocio negocio = new ArticuloNegocio();
+            CarritoCantidad carrito = listaID.FirstOrDefault(x => x.IdArticulo == articuloID);
+            Articulo articulo = negocio.obtenerArticulo(articuloID);
+            return carrito.Cantidad * articulo.Precio;
         }
         public decimal CalcularTotalGeneral()
         {

@@ -16,7 +16,7 @@
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         <asp:UpdatePanel ID="UpdatePanelCarrito" runat="server">
             <ContentTemplate>
-                <asp:Label Visible="false" runat="server" CssClass="custom-margin" ID="lblMessage"></asp:Label>
+                <asp:Label Visible="false" runat="server" style="color:red;" CssClass="custom-margin" ID="lblMessage"></asp:Label>
                 <div class="container-fluid">
                     <div class="row justify-content-center">
                         <div class="col">
@@ -44,12 +44,11 @@
                                                 </div>
                                             </ItemTemplate>
                                         </asp:TemplateField>
-
                                         <asp:TemplateField HeaderText="Cantidad">
                                             <ItemTemplate>
                                                 <div class="item-details d-flex align-items-center">
-                                                    <asp:TextBox ID="txtCantidad" runat="server" Text='<%# Eval("Cantidad") %>'
-                                                        CssClass="item-quantity" min="1" type="number" Style="max-width: 3rem"
+                                                    <asp:TextBox ID="txtCantidad" runat="server" Text='<%# Eval("Cantidad") %>' OnTextChanged="txtCantidad_TextChanged"
+                                                        CssClass="item-quantity" min="1" type="number" Style="max-width: 3rem" AutoPostBack="true"
                                                         data-cantidad-id='<%# Container.DataItemIndex %>'
                                                         onkeydown="return restrictArrowKeys(event);"></asp:TextBox>
                                                 </div>
@@ -58,7 +57,7 @@
                                         <asp:TemplateField HeaderText="Total">
                                             <ItemTemplate>
                                                 <div class="item-details d-flex align-items-center">
-                                                    <span class="item-total">Total: $<%# (Convert.ToDecimal(Eval("Precio")) * Convert.ToInt32(Eval("Cantidad"))).ToString("0.00") %></span>
+                                                    <span class="item-total">Total: $<%# CalcularTotalArticulo((int)Eval("Id")) %></span>
                                                 </div>
                                             </ItemTemplate>
                                         </asp:TemplateField>
@@ -67,6 +66,11 @@
                                                 <asp:ImageButton ID="btnEliminar" ImageUrl="https://cdn.pixabay.com/photo/2021/07/24/17/57/trash-can-6490091_1280.png" runat="server"
                                                     CommandName="Eliminar" CommandArgument='<%# Container.DataItemIndex %>'
                                                     ToolTip="Eliminar" Height="24" Width="24" />
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                        <asp:TemplateField>
+                                            <ItemTemplate>
+                                                <!-- Columna vacía -->
                                             </ItemTemplate>
                                         </asp:TemplateField>
                                     </Columns>
@@ -89,3 +93,4 @@
         </asp:UpdatePanel>
     </div>
 </asp:Content>
+
