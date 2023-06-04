@@ -76,6 +76,7 @@
     <Content Include="CSS\Home.css" />
     <Content Include="Scripts\scriptCarrito.js" />
     <Content Include="Scripts\scriptHome.js" />
+    <Content Include="SQL_Scripts\storedListar.sql" />
     <Content Include="Web.config" />
     <Content Include="default.aspx" />
   </ItemGroup>
